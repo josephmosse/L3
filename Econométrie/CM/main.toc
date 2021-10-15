@@ -1,0 +1,33 @@
+\contentsline {section}{\numberline {1}Introduction}{3}{}%
+\contentsline {subsection}{\numberline {1.1}Définition}{3}{}%
+\contentsline {subsection}{\numberline {1.2}Prix Nobels}{3}{}%
+\contentsline {section}{\numberline {2}Histoire de l'économétrie}{3}{}%
+\contentsline {subsection}{\numberline {2.1}Des Origines de l'économétrie à l'âge d'or de la modélisation Macro-économique}{3}{}%
+\contentsline {subsubsection}{\numberline {2.1.1}Premières études [17eme 18eme siècle]}{3}{}%
+\contentsline {subsubsection}{\numberline {2.1.2}Genèse de l'économétrie [19\textsuperscript {ème} siècle]}{3}{}%
+\contentsline {subsubsection}{\numberline {2.1.3}Imbrication de l'économie, des mathématiques et de la statistique [20\textsuperscript {ème} siècle]}{4}{}%
+\contentsline {subsection}{\numberline {2.2}De la crise de la modélisation macro-économique à l'âge d'or de l'économétrie}{5}{}%
+\contentsline {subsubsection}{\numberline {2.2.1}Années 70 et la fin de l'âge d'or de la modélisation marco-économétrique selon la tradition de la Cowles Foundation}{5}{}%
+\contentsline {section}{\numberline {3}Le modèle linéaire simple à deux variables et généralisation a k variables}{5}{}%
+\contentsline {subsection}{\numberline {3.1}Les hypothèses de base du modèle}{6}{}%
+\contentsline {subsection}{\numberline {3.2}Les estimateurs des MCO (moindres carrés ordinaire)}{7}{}%
+\contentsline {section}{\numberline {4}Lois des estimateurs, intervalles de confiance et tests d'hypothèse}{8}{}%
+\contentsline {subsection}{\numberline {4.1}Estimation par intervalle de confiance}{8}{}%
+\contentsline {subsubsection}{\numberline {4.1.1} Intervalle de confiance de \(\upbeta \)}{8}{}%
+\contentsline {subsubsection}{\numberline {4.1.2}Intervalle de confiance de \(\hat {\upalpha }\)}{9}{}%
+\contentsline {subsubsection}{\numberline {4.1.3}Intervalle de confiance de \(\upsigma _\varepsilon ^2\)}{9}{}%
+\contentsline {subsection}{\numberline {4.2}Tests d'hypothèse}{10}{}%
+\contentsline {subsubsection}{\numberline {4.2.1}Test de $\upbeta $}{10}{}%
+\contentsline {subsubsection}{\numberline {4.2.2}Test de $\upalpha $}{11}{}%
+\contentsline {subsubsection}{\numberline {4.2.3}Test de $\upsigma _\varepsilon ^2$}{12}{}%
+\contentsline {subsection}{\numberline {4.3}Étude de la corrélation}{12}{}%
+\contentsline {subsubsection}{\numberline {4.3.1}Propriétés}{12}{}%
+\contentsline {subsubsection}{\numberline {4.3.2}Analyse de la Variance}{13}{}%
+\contentsline {subsubsection}{\numberline {4.3.3}Calcul du coefficient de détermination $R^2$}{14}{}%
+\contentsline {subsubsection}{\numberline {4.3.4}Test du coefficient de corrélation linéaire r}{14}{}%
+\contentsline {subsubsection}{\numberline {4.3.5}Tableau de l'analyse de la variance}{15}{}%
+\contentsline {section}{\numberline {5}Test du coefficient de détermination $R^2$}{15}{}%
+\contentsline {section}{\numberline {6}Utilisation du modèle de régression en prévision}{16}{}%
+\contentsline {subsection}{\numberline {6.1}Intervalle de confiance : de la valeur moyenne de $Y$ connaissant une valeur donnée de $X$}{16}{}%
+\contentsline {subsection}{\numberline {6.2}Tests d'hypothèse : comparaison d'une prévision ponctuelle à la droite des moindres carrés}{16}{}%
+\contentsline {section}{\numberline {7}Bibliographie}{16}{}%
