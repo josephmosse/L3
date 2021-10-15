@@ -1,0 +1,472 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{multicol}
+\usepackage{array}
+\usepackage{upgreek}
+\usepackage{amsmath}
+\usepackage{physics}
+
+\usepackage[dvipsnames]{xcolor}
+\usepackage{geometry}
+\usepackage[makeroom]{cancel}
+\usepackage{nicefrac}
+
+
+
+\title{Econométrie}
+
+\newcommand{\hbeta}{\hat{\upbeta}}
+\newcommand{\halpha}{\hat{\upalpha}}
+\newcommand{\et}{\varepsilon_t}
+\newcommand{\sumt}{\sum\limits_{t=1}^n}
+\newcommand{\sig}{\upsigma_\varepsilon^2}
+\newcommand{\sige}{\hat{\upsigma}_\varepsilon^2}
+\newcommand{\studn}{t_{\upalpha / 2}}
+\newcommand{\studp}{t_{1 - \upalpha / 2}}
+\newcommand{\chin}{\upchi_{\upalpha / 2}^2}
+\newcommand{\chip}{\upchi_{1 - \upalpha / 2}^2}
+\newcommand{\xb}{\overline{X}}
+\newcommand{\yb}{\overline{Y}}
+
+
+\begin{document}
+
+
+{\Huge Économétrie}
+\tableofcontents
+\newpage
+\section{Introduction}
+\subsection{Définition}
+L'économétrie est le domaine de l'économie qui s'occupe de l'application de la statistique mathématique et des outils de l'inférence statistique à la mesure empirique des relations postulées par la théorie économique
+\subsection{Prix Nobels}
+1980, Laurence Klein : Modèles macro-économétriques et leurs applications a l'analyse des fluctuations économiques\\
+1989, Trygve Haavelmo : Approche probabiliste et les modèles a équations simultanées\\
+2000, James Heckman : Travaux sur les théories et méthodes d'analyse des échantillons sélectifs\\
+2000, Mac Fadden : Économétrie des choix discrets\\
+2003, Robert F. Engle : Volatilité des séries temporelles pour les modèles ARCH\
+2003, Clive Granger : Théorie de la cointégration
+\section{Histoire de l'économétrie}
+\subsection{Des Origines de l'économétrie à l'âge d'or de la modélisation Macro-économique}
+\subsubsection{Premières études [17eme 18eme siècle]}
+L'autorité de la loi naturelle se dégage de celle de la religion et du prince\\
+Apparition des statistiques
+\begin{center}
+\begin{tabular}{m{200pt}|m{200pt}}
+\textbf{Statistique Allemande} & \textbf{Arithmétique Politique} (Angleterre)\\
+La Statistique est un moyen de classer les savoirs hétéroclites & Utilisation de techniques statistiques pour le dépouillement des registres paroissiaux \\
+\textcolor{red}{Conring, Herman} & \textcolor{red}{Petty, William } : études natalité/mortalité\\
+& \textcolor{red}{King, Gregory} : formalisation loi de demande
+\end{tabular}
+\end{center}
+\subsubsection{Genèse de l'économétrie [19\textsuperscript{ème} siècle]}
+La statistique mathématique et l'évolution probabiliste de multiples champs permet de donner une dimension statistique à la représentation de la société
+\begin{center}
+    \begin{tabular}{m{60pt}|m{300pt}}
+        \textcolor{red}{Galton} & Statistique mathématique et Analyse mathématique de la régression (corrélation)\\
+        \hline
+        \textcolor{red}{Edgeworth} & Fonction de densité de la loi normale multivariée. Détermine les expressions de coefficient de régression multiple \\
+        \hline
+        \textcolor{red}{Pearson} & Coefficient de corrélation multiple : Analyse de la relation entre variables\\
+        \hline
+        \textcolor{red}{Yule} & Paupérisme, relation avec les mesures d'assistance\\
+        \hline
+        \textcolor{red}{Hocker} & Utilisation de variables retardées\\
+        \hline
+        \textcolor{red}{Lenoir} & Première estimation des lois d'offre et demande\\
+        \hline
+        \textcolor{red}{Moore} & Problème de détermination des salaires, utilisation des corrélations multiples, auto-corrélation et corrélogrammes 
+    \end{tabular}
+\end{center}
+\centering\textbf{Conjoncturistes Américains} : \\
+\textcolor{red}{Juglar, Kitchin , Kondratieff}\\
+\raggedright
+Analyse des cycles économiques \(\neq\) économie mathématique (Moore)\\
+\begin{itemize}
+    \item Création d'instituts de conjecture (Russie 1920)
+    \item Création du NBER (national bureau of economics research) 
+\end{itemize}
+
+\subsubsection{Imbrication de l'économie, des mathématiques et de la statistique [20\textsuperscript{ème} siècle]}
+A la fin des années 20, l'économétrie gagne de l'intérêt en Europe\\
+Création de la société d'économétrie le 29/12/1930 à Cleveland avec \textcolor{red}{Frish},       \textcolor{red}{Timbergen}. Elle officialise l'économétrie comme discipline et nomme \textcolor{red}{Fisher} président. La société d'économétrie recrute \textcolor{red}{Cowles}, qui, en contre-partie, demande la création d'une revue (\textcolor{red}{Econometrica}, RC : Frish) et la création d'un organisme de recherche \textcolor{red}{Cowles Foundation}\\ \textcolor{red}{Roos} est nommé premier président de la Cowles foundation\\
+%\begin{itemize}
+%\color{ForestGreen}
+%    \item Système d'équations multiples
+%    \item Données disponibles sous la forme de données temporelles
+%    \item Introduction dans les équations de termes aléatoires 'pouvant expliquer l'influence de causes irrégulières multiples)
+%    \item Utilisation de données agrégées
+%\end{itemize}
+
+\begin{itemize}
+    \item[-] Avant 1930 la théorie des probabilités est pratiquement inutilisée jusqu'à ce que Haavelmo propose d'y apporter une approche stochastique (aléatoire)
+    \item[-] Apparition d'une chaire d'économétrie
+    \item[-] Diversification des sources de financement par l'obtention de subventions (Rockfeller, NBER)
+    \item[-] Le terme d'identification apparaît après les travaux de Haavelmo
+\end{itemize}
+
+Tous ces travaux marquent le début de la modélisation macro-économique qui connaitra son age d'or dans les 60's - 70's avec \textcolor{red}{Keynes} et les comptes nationaux
+
+Âge d'or de la modélisation macro-économique et essort des modèles dynamiques
+\begin{enumerate}
+    \item Introduction de mécanismes dynamiques dans les modèles économétriques
+    \item Modèles a retard échelonnés \textcolor{red}{Koyck}
+    \item Développmeent des prévisions à a court terme \textcolor{red}{Box \& Jenkins}
+\end{enumerate}
+
+\subsection{De la crise de la modélisation macro-économique à l'âge d'or de l'économétrie}
+\subsubsection{Années 70 et la fin de l'âge d'or de la modélisation marco-économétrique selon la tradition de la Cowles Foundation}
+\begin{itemize}
+    \item[-] Premier choc pétrolier $\rightarrow$ Remise en cause des modélisations
+    \item[-] \textcolor{red}{Sims} $\rightarrow$ Modèles VAR (\textit{vector auto regressive})
+    \item[-] Fonctions de réponse impulsionelle
+    \item[-] Etude de la causalité
+    \item[-] Test de la racine unitaire (Si les séries sont stationnaires ou non)
+    \item[-] Apparition de la modélisation ARCH, instauration d'une économétrie plurielle (modèle logit, probit)
+    \item[-] Introduction des principes Baillisiens
+\end{itemize}
+
+\section{Le modèle linéaire simple à deux variables et généralisation a k variables}
+Modèle économétrique : Représentation simplifiée mais la plus exhaustive possible d'une entité économique donnée sous sa forme la plus courante représentée par un système d'équation (souvent linéaire) et relie des types de variables similaires
+\begin{center}
+    Variables explicatives $\rightarrow$ Variables exogènes\\
+    Variables expliquées $\rightarrow$ Variables endogènes
+\end{center}
+
+\[ Y = f(X_1,X_2,..,X_n) \quad \textrm{une seule variable explicative } Y \textrm{ et une expliquée }X \]
+
+\( Y = \upalpha + \upbeta X\) (\(\upalpha \textrm{ et } \upbeta\) sont des paramètres inconnus). Cette relation est exacte, or cela est impossible en économie, on doit donc introduire un terme aléatoire (aléa ou erreur). cette variable a pour rôle de synthétiserl'ensemble des influences sur \(Y \textrm{ que } X\) ne peut expliquer. \newline
+
+\textbf{3 Types de modèles :}
+\begin{itemize}
+    \item Modèle en série chronologique (évolution au cours du temps)
+    \[ Y_t = \upalpha + \upbeta X_t + \varepsilon_t \]
+    \item Modèle en coupe instantanée (à un moment donné dans le temps)
+    \[ Y_i = \upalpha + \upbeta X_i + U_i \]
+    \item Modèle de panel
+    \[ Y_{ti} = \upalpha + \upbeta X_{ti} + U_{it}\]
+\end{itemize}
+Le fait d'introduire un aléa permet de faire des tests sur \(\upalpha \textrm{ et } \upbeta\). \newline
+
+Tout modèle non linéaire peut se ramener à un modèle linéaire (transformation par anamorphose).
+\begin{center}
+    \textbf{\textcolor{ForestGreen}{Exemples (transformation)}}\\
+    \begin{tabular}{c|c|c}
+         \( Y = \upalpha e^{\upbeta X}\) & \( Y = \upalpha X^{\upbeta}\) & \( Y = \frac{\upalpha}{X^\upbeta}\) \\
+         \( \ln Y = \ln \upalpha + \upbeta X  \) & \( \ln Y = \ln \upalpha + \upbeta \ln X \) & \( \ln Y = \ln \upalpha - \upbeta \ln X \) \\
+         \( Y' = \upalpha' + \upbeta X \) & \( Y' = \upalpha' + \upbeta X' \) & \( Y' = \upalpha' - \upbeta X' \)
+    \end{tabular}
+\end{center}
+
+\begin{align*}
+    Y_t = \frac{Y_0}{1 + \upbeta X^t} &\Leftrightarrow \frac{Y_0}{Y_t} - 1 = \upbeta X^t \\
+    \ln (\frac{Y_0}{Y_t} - 1) = \ln (\upbeta X^t) &\Leftrightarrow \ln Y_0 - \ln Y_t = \ln \upbeta + t \ln X \\
+    Y' &= \upbeta' + t X'
+\end{align*}
+
+
+
+
+
+\subsection{Les hypothèses de base du modèle}
+
+Il existe deux méthodes qui permettent d'estimer \(\upalpha \textrm{ et } \upbeta\)
+\begin{itemize}
+    \item Méthode des MCO (moindres carrés ordinaires)
+    \item Méthode du maximum de vraisemblance
+\end{itemize}
+\begin{center}
+    \textbf{Hypothèses}
+\end{center}
+\begin{itemize}
+	\item[*] \(X\) est une variable contrôlée (indépendante de l'aléa). \(Cov(X,\varepsilon) = 0\)
+    \item[*] $\varepsilon \rightarrow$ une hypothèse de normalité. $E(\varepsilon_t) = 0$ \\
+    En moyenne l'ensemble des facteurs non expliqués par la régression (qui se retrouvent dans l'aléa) tendent a se compenser.
+    \item[*] Hypothèse d'homosédasticité : 
+    \\la variance de $\varepsilon_t$ est constante quel que soit le sous échantillon prélevé dans l'intervalle $\{1;n\}$ \\
+    $E(\varepsilon_t^2) = \upsigma_t^2$
+    \item[*] Hypothèse de non autocorrélation de l'aléa :\\
+    La distribution de $\varepsilon_t$ qui correspond à $X_t$ est indépendante de celle de $\varepsilon_{t'}$ qui correspond à $X_{t'}$\\
+    $Cov(\varepsilon_t,\varepsilon_{t'}) = E(\varepsilon_t \varepsilon_{t'}) = 0 \quad \color{ForestGreen}(\forall t \neq t')$
+\end{itemize}
+\newpage
+
+\subsection{Les estimateurs des MCO (moindres carrés ordinaire)}
+La méthode des MCO consiste à \textcolor{red}{minimiser la somme des carrés des écarts}. Écarts entre les valeurs observées de la variable \(Y_t\) et la valeur calculée de cette même variable \(\hat{Y_t}\). \\ 
+Écart mesuré respectivement par les projections parallèlement à l'axe des ordonnées des points sur la droite de régression. \\
+\begin{center}
+	\textbf{Programme de Minimisation :}
+\end{center}
+\begin{gather*}
+	\min \sum_t (Y_t - \hat{Y_t})^2 \\
+	\min \sum_t \varepsilon^2_t = \min \sum_t ( Y_t - \hat{Y_t})^2 = \min \sum_t (Y_t - (\hat{\upalpha} + \hat{\upbeta} X_t))^2 \\ 
+\end{gather*}
+Conditions de premier ordre :
+\begin{multicols}{2}
+\begin{gather*}
+	\pdv{\varphi}{\hat{\upalpha}} = -2 \sum_t (Y_t - \hat{\upalpha} - \hat{\upbeta} X_t ) = 0 \\
+	\Leftrightarrow \quad n \overline{Y} - n \hat{\upalpha} - \hat{\upbeta} n \overline{X} = 0 \\
+	\Leftrightarrow \quad \hat{\upalpha} = \overline{Y} - \hat{\upbeta} - \overline{X}
+\end{gather*}
+\columnbreak
+
+\begin{gather*}
+	\pdv{\varphi}{\hat{\upbeta}} = -2 \sum_t (Y_t - \hat{\alpha} - \hat{\upbeta} X_t) X_t \\
+	\Leftrightarrow \quad \sum_t (Y_t - (\overline{Y} - \hat{\upbeta} \overline{X} - \hat{\upbeta} X_t) X_t = 0 \\
+	\Leftrightarrow \quad \sum_t X_tY_t - \overline{Y} \sum_t X_t + \hat{\upbeta} \overline{X} \sum_t X_t - \hat{\upbeta} \sum_t X_t^2 = 0\\
+	\Leftrightarrow \quad \sum_t X_tY_t - \overline{Y} n \overline{X} + \hat{\upbeta} \overline{X} n \overline{X} - \hat{\upbeta} \sum_t X_t^2 = 0 \\
+	\Leftrightarrow \quad \sum_t X_tY_t - n \overline{X} \overline{Y} - \hat{\upbeta} (\sum_t X_t^2 -n \overline{X^2}) = 0 \\
+	\Leftrightarrow \quad \hat{\upbeta} = \frac{\frac{1}{n}\sum_t X_tY_t - n \overline{X} \overline{Y}}{\sum_t X_t^2 -n \overline{X^2}} = \frac{n Cov(X,Y)}{n V(X)}
+\end{gather*}
+\end{multicols}
+\textit{D'où}
+{
+\color{red}
+\begin{align*}
+	\hat{\upbeta} &= \frac{\frac{1}{n}\sum_t X_tY_t - \overline{X} \overline{Y}}{\frac{1}{n}\sum_t X_t^2 - \overline{X^2}} = \frac{Cov(X,Y)}{V(X)} \\
+	\hat{\upalpha} &= \overline{Y} - \hat{\upbeta} - \overline{X}
+\end{align*}
+}
+Conditions de second ordre : 
+\begin{align*}
+	\pdv[2]{\varphi}{\hat{\upalpha}} &= 2 >0 \\
+	\pdv[2]{\varphi}{\hat{\upbeta}} &= 2 >0
+\end{align*}
+La fonction est convexe, on a donc bien un minimum 
+\newpage
+La droite de régression passe par le point moyen qui est le centre de gravité (couple \(\bar{X},Y\)).
+
+Données centrées : 
+\begin{align*}
+	x_t &= X_t - \bar{X} &\hat{y_t} = \hat{Y_t} - \bar{Y}\\
+	y_t &= Y_t - \bar{Y} &\hat{x_t} = \hat{X_t} - \bar{Y}\\
+\end{align*}
+On cherche \(\hat{y} \) :
+\begin{align*}
+	\hat{Y} = \hat{y_t} + \bar{Y} = \hat{\upalpha} + \hat{\upbeta} X_t  = \hat{\upalpha} + \hat{\upbeta} (x_t + \bar{X})	
+\end{align*} 
+\begin{align*}
+	\hat{y_t} &= - \bar{Y} + \halpha + \hbeta x_t + \hbeta \bar{X} \\
+	&= - \bar{Y} + \hbeta x_t + \hbeta \bar{X} + (\bar{Y} - \hbeta \bar{X} \\
+	\hat{y_t} &= \hbeta x_t
+\end{align*}
+
+\section{Lois des estimateurs, intervalles de confiance et tests d'hypothèse}
+Comme les estimateurs sont linéaires de \(Y_t\) et comme \(Y_t\) dépend de \(\et\) et que \(\et\) est aléatoire et qu'il obéi a une loi normale, alors les estimateurs sont donc aléatoires et obéissent a une loi normale.
+\begin{align*}
+	& \halpha \sim N \Bigg(\upalpha \; , \sigma_\varepsilon \sqrt{\frac{\sum X^2_t}{n \sum x_t^2 }} \; \Bigg) &\hbeta \sim N \Bigg( \upbeta \; , \sigma_\varepsilon \sqrt{\frac{1}{\sumt x_t^2}} \; \Bigg) \\
+\end{align*}
+\[(n-2) \frac{\hat{\sig}}{\sig} \sim \upchi^2 (n-2)\]
+
+\subsection{Estimation par intervalle de confiance}
+\subsubsection{ Intervalle de confiance de \(\upbeta\)}
+\[\exists \: \upbeta_1, \upbeta_2 \: /  \: 1 - \upalpha = Prob [\upbeta_1 < \upbeta < \upbeta_2]\]
+\[\frac{\frac{\hbeta - \upbeta}{\upsigma_\varepsilon / \sqrt{\sumt x_t^2}}}{\sqrt{(n-2) \cdot \frac{\hat{\sig}}{\sig} \cdot \frac{1}{(n-2)}}} \sim T(n-2) \qquad \Leftrightarrow \qquad \frac{\hbeta - \upbeta}{\hat{\sigma_\varepsilon}} \cdot \sqrt{\sum x_t^2} \sim T(n-2) \]
+d'où : 
+\begin{align*}
+	1- \upalpha &= Prob\left[\studn < T(n-2) <\studp\right] \\
+	&= Prob\left[\studn< \frac{\hbeta - \upbeta}{\hat{\sigma_\varepsilon}} \cdot \sqrt{\sum x_t^2}<\studp\right] \\		&= Prob\left[\studn\ \cdot \frac{\hat{\sigma_\varepsilon}}{\sqrt{\sum x_t^2}} < \hbeta - \upbeta <\studp \cdot \frac{\hat{\sigma_\varepsilon}}{\sqrt{\sum x_t^2}} \right] \\
+	&=  Prob\left[\hbeta - \studp\ \cdot \frac{\hat{\sigma_\varepsilon}}{\sqrt{\sum x_t^2}} <\upbeta <\hbeta - \studn \cdot \frac{\hat{\sigma_\varepsilon}}{\sqrt{\sum x_t^2}} \right] \\
+	&{\color{red} \boxed{= Prob\left[\upbeta \in \left[\hbeta \pm \bigg\{\begin{tabular}{l} $\studn$ \\ $\studp$ \end{tabular}  \frac{\hat{\sigma_\varepsilon}}{\sqrt{\sum x_t^2}}  \right]\right]}}
+\end{align*}
+\subsubsection{Intervalle de confiance de \(\halpha\)}
+\[\exists \: \upalpha_1, \upalpha_2 \: /  \: 1 - \upalpha = Prob [\upalpha_1 < \upalpha < \upalpha_2]\]
+\[\frac{\frac{\halpha - \upalpha}{\upsigma_\varepsilon / \sqrt{\frac{\sum X_t^2}{n \sum x_t^2}}}}{\sqrt{\frac{(n-2)}{n-2} \cdot \frac{\hat{\sig}}{\sig}}} \sim T(n-2) \qquad \Leftrightarrow \qquad \frac{\halpha - \upalpha}{\hat{\sigma_\varepsilon}} \cdot \frac{\sqrt{n \sum x_t^2}}{\sqrt{\sum X_t^2}} \sim T(n-2) \]
+d'où :
+\begin{align*}
+	1- \upalpha &= Prob\left[\studn < T(n-2) <\studp\right] \\
+	&= Prob\left[\studn <  \frac{\halpha - \upalpha}{\hat{\sigma_\varepsilon}} \cdot \frac{\sqrt{n \sum x_t^2}}{\sqrt{\sum X_t^2}} <\studp\right] \\
+	&= Prob\left[\studn \cdot \hat{\sigma_\varepsilon} \frac{\sqrt{\sum X_t^2}}{\sqrt{n \sum x_t^2}}<\halpha - \upalpha<\studp  \cdot \hat{\sigma_\varepsilon} \frac{\sqrt{\sum X_t^2}}{\sqrt{n \sum x_t^2}} \right] \\
+	&= Prob\left[\halpha - \studp \cdot \hat{\sigma_\varepsilon} \frac{\sqrt{\sum X_t^2}}{\sqrt{n \sum x_t^2}}<\upalpha<\halpha - \studn  \cdot \hat{\sigma_\varepsilon} \frac{\sqrt{\sum X_t^2}}{\sqrt{n \sum x_t^2}} \right] \\
+	&{\color{red} \boxed{= Prob\left[\upalpha \in \left[\halpha \pm \bigg\{\begin{tabular}{l} $\studn$ \\ $\studp$ \end{tabular}   \hat{\sigma_\varepsilon} \frac{\sqrt{\sum X_t^2}}{\sqrt{n \sum x_t^2}}  \right]\right]}}
+\end{align*}
+\subsubsection{Intervalle de confiance de \(\sig\)}
+\[\exists \: \upsigma_1^2, \upsigma_2^2 \: /  \: 1 - \upalpha = Prob \left[\upsigma_1^2 < \sig <  \upsigma_2^2\right]\]
+\[(n-2) \cdot \frac{\hat{\sig}}{\sig} \sim \upchi^2 (n-2)\]
+d'où
+\begin{align*}
+	1 - \upalpha &= Prob\left[\chin<\upchi^2 (n-2)<\chip\right] \\
+	&= Prob\left[\chin < (n-2) \cdot \frac{\hat{\sig}}{\sig} < \chip \right] \\
+	&= Prob\left[\frac{\chin}{(n-2) \hat{\sig}}<\frac{1}{\sig}<\frac{\chip}{(n-2) \hat{\sig}}\right] \\
+	&{\color{red} \boxed{= Prob \left[\frac{(n-2) \hat{\sig}}{\chip}<\sig<\frac{(n-2) \hat{\sig}}{\chin}\right]}}
+\end{align*}
+
+\subsection{Tests d'hypothèse}
+\subsubsection{Test de $\upbeta$}
+	\textbf{Spécification du test} \\
+	\[H_0 : \upbeta = 0 \quad H_1 : \upbeta \neq 0\]
+	\textbf{Statistique de test}
+	\[\frac{\hbeta - \upbeta}{\hat{\sigma_\varepsilon}} \cdot \sqrt{\sum x_t^2} \sim T(n-2) \]
+	\textbf{Intervalle d'acceptation}
+	\begin{align*}
+		1- \upalpha &= Prob\left[\studn < T(n-2) <\studp\right] \\
+		&= Prob\left[\studn< \frac{\hbeta}{\hat{\sigma_\varepsilon}} \cdot \sqrt{\sum x_t^2}<\studp\right] {\color{ForestGreen}\textrm{si }H_0 \textrm{ vrai}}\\
+		&= Prob\left[\studn \cdot  \frac{\hat{\sigma_\varepsilon}}{\sqrt{\sum x_t^2}} < \hbeta <\studp \cdot \frac{\hat{\sigma_\varepsilon}}{\sqrt{\sum x_t^2}}\right]\\
+		&{\color{red} \boxed{= Prob\left[\hbeta \in \left[\pm \; \studn  \frac{\hat{\sigma_\varepsilon}}{\sqrt{\sum x_t^2}}  \right]\right] \textrm{IA} }}
+	\end{align*}
+	\textbf{RDD } \\
+	Si $\hbeta \in $ IA on accepte $H_0$ au risque de première espèce $\upalpha$ \\
+	Si $\hbeta \notin $ IA on rejette $H_0$ au risque de première espèce $\upalpha$ {\color{red}(validité du modèle)}
+
+	\textbf{Autre façon de procéder} 
+	\begin{align*}
+		1- \upalpha &= Prob \left[\studn < \frac{\hbeta}{\hat{\upsigma_\varepsilon} \; / \; \sqrt{\sum x_t^2}} < \studp\right] =  Prob \left[ \: \left\lvert \frac{\hbeta}{\hat{\upsigma_\varepsilon} \; / \; \sqrt{\sum x_t^2}} \right\rvert < \studp\right] \\
+		&= Prob\left[ \: \left\lvert \frac{\hbeta}{\hat{\sigma}_{\hat{\upbeta}}} \right\rvert < \studp\right] \\
+		&{\color{red} \boxed{= Prob\left[\left\lvert t_c \right\rvert < \studp\right]}} &\textrm{Avec} \quad t_c = \frac{\hbeta}{\hat{\sigma}_{\hat{\upbeta}}} \sim T(n-2)
+	\end{align*}
+	\textbf{RDD}\\
+	Si $|t_c| < \studp $ on accepte $H_0$ au risque de $\upalpha$ \\
+	Si $|t_c| \geq \studp $ on rejette $H_0$ au risque de $\upalpha$ \\
+\subsubsection{Test de $\upalpha$}
+	\textbf{Spécification du test} \\
+	\[H_0 : \upalpha = 0 \quad H_1 : \upalpha \neq 0\]
+	\textbf{Statistique de test}
+	\[ \frac{\halpha - \upalpha}{\hat{\sigma_\varepsilon}} \cdot \frac{\sqrt{n \sum x_t^2}}{\sqrt{\sum X_t^2}} \sim T(n-2) \]
+	\textbf{Intervalle d'acceptation}
+	\begin{align*}
+		1- \upalpha &= Prob\left[\studn < T(n-2) <\studp\right] \\
+		&= Prob\left[\studn<  \frac{\halpha}{\hat{\sigma_\varepsilon}} \cdot \frac{\sqrt{n \sum x_t^2}}{\sqrt{\sum X_t^2}}<\studp\right] {\color{ForestGreen}\textrm{si }H_0 \textrm{ vrai}}\\
+		&= Prob\left[\studn \cdot \hat{\sigma_\varepsilon} \frac{\sqrt{\sum X_t^2}}{\sqrt{n \sum x_t^2}}   < \halpha <\studp \cdot \hat{\sigma_\varepsilon} \frac{\sqrt{\sum X_t^2}}{\sqrt{n \sum x_t^2}} \right]\\
+		&{\color{red} \boxed{= Prob\left[\halpha \in \left[\pm \; \studn \cdot² \hat{\sigma_\varepsilon} \frac{\sqrt{\sum X_t^2}}{\sqrt{n \sum x_t^2}}  \right]\right] \textrm{IA} }}
+	\end{align*}
+	\textbf{RDD } \\
+	Si $\halpha \in $ IA on accepte $H_0$ au risque de première espèce $\upalpha$ \\
+	Si $\halpha \notin $ IA on rejette $H_0$ au risque de première espèce $\upalpha$ 
+
+	\textbf{Autre façon de procéder} 
+\[t_c = \frac{\halpha}{\hat{\sigma}_{\hat{\upalpha}}} \sim T(n-2)\]
+	\textbf{RDD}\\
+	Si $|t_c| < \studp $ on accepte $H_0$ au risque de $\upalpha$ \\
+	Si $|t_c| \geq \studp $ on rejette $H_0$ au risque de $\upalpha$ \\
+\subsubsection{Test de $\sig$}
+\textbf{Spécification du test} 
+\[H_0 : \sig = \upsigma_0^2 \quad H_1 : \sig \neq \upsigma_0^2\]
+\textbf{Statistique de test} 
+\[(n-2) \frac{\hat{\sig}}{\sig} \sim \upchi^2 (n-2)\]
+\textbf{Intervalle d'acceptation}
+\begin{align*}
+	1 - \upalpha &= Prob\left[\chin<\upchi^2 (n-2)<\chip\right] \\
+	&= Prob\left[\chin < (n-2) \cdot \frac{\hat{\sig}}{\upsigma_0^2} < \chip \right] {\color{ForestGreen}\textrm{si }H_0 \textrm{ vrai}}\\
+	&{\color{red}\boxed{ = Prob\left[\chin \cdot \frac{\upsigma_ 0^2}{n-2} < \sig < \chip \cdot \frac{\upsigma_ 0^2}{n-2} \right]}}
+\end{align*}
+\textbf{RDD} \\
+	Si $\sig \in $ IA on accepte $H_0$ au risque de première espèce $\upalpha$ \\
+	Si $\sig \notin $ IA on rejette $H_0$ au risque de première espèce $\upalpha$
+
+\subsection{Étude de la corrélation}
+ Le \textbf{coefficient de corrélation} est un coefficient qui mesure le degrés de covariation linéaire, c'est à dire la manière dont varient ensemble les variables entre elles.
+ \[r_{XY} = \frac{Cov(X,Y)}{\upsigma_X \cdot \upsigma_y} = \frac{\sum x_t y_t}{\sqrt{\sum x_t^2 \sum y_t^2}}\]
+ 
+ \subsubsection{Propriétés}
+ \begin{itemize}
+ 	\item $-1 \leq r \leq 1$
+ 	\item $r$ est sans dimension
+ 	\item $r$ est symétrique : $r_{XY} = r_{YX}$
+ 	\item $r$ n'est pas affecté par un changement de variable $r{XY} = r_{xy}$ \quad avec $r_{xy} =  \frac{\sum x_t y_t}{\sqrt{\sum x_t^2 \sum y_t^2}}$
+ 	\item Relation entre $\hbeta$ et $r$ : \quad $\hbeta = \frac{\sum x_t y_t}{\sum x_t^2}$
+ 	 \[r = \hbeta \cdot \frac{\sqrt{\sum x_t^2}}{\sqrt{\sum y_t^2}} \quad \Leftrightarrow \quad r = \hbeta \frac{\sqrt{\frac{1}{n} \sum \left(X_t - \xb \right)^2}}{\sqrt{\frac{1}{n}\sum \left(Y_t - \yb\right)^2}} \quad \Leftrightarrow \quad {\color{red}r = \hbeta \cdot \frac{s_X}{s_Y}} \]
+ \end{itemize}
+
+ \subsubsection{Analyse de la Variance}
+ \[e_t = y_t - \hat{y}_t \qquad \textrm{On sait que : } \hat{y}_t = \hbeta x_t\]
+ \[\sumt y_t^2 = \sumt \left(e_t + \hat{y}_t\right)^2 = \sumt \hat{y}_t^2 + \sumt e_t^2 + 2 \sumt e_t \hat{y}_t\]
+ 
+ \begin{align*}
+ 	\sumt e_t \hat{y}_t &= \sumt \left(y_t - \hat{y}_t \right) \hbeta x_t  \\
+ 	&= \hbeta \left[\sumt \left(y_t - \hat{y}_t \right) x_t \right] \\
+ 	&= \hbeta \left[\sumt \left( \hat{y}_t - \hbeta x_t\right) x_t \right] \\
+ 	&= \hbeta \left[\sumt y_t - x_t - \hbeta x_t^2 \right] \\
+ 	&= \hbeta \underbrace{\left[\sumt y_t x_t - \hbeta \sumt x_t^2 \right]}_{= 0}
+ \end{align*}
+ \begin{align*}
+ 	\textrm{D'où} \qquad &{\color{red}\boxed{\sumt y_t^2 = \sumt \hat{y}_t^2 + \sumt e_t^2}} \qquad \textrm{EQ de l'analyse de la variance}\\ 	
+ 	\Leftrightarrow \qquad &\underbrace{\sumt \left(Y_t - \bar{Y} \right)^2}_{\textrm{Variance totale}} = \underbrace{\sumt \left(\hat{Y}_t - \bar{Y}\right)^2}_{\textrm{Variance expliquée}} + \underbrace{\sumt e_t^2}_{\textrm{Variance residuelle}}
+ \end{align*}
+ La fluctuation totale des valeurs de $Y_t$ autour de la moyenne de l'échantiollon peut etre décomposée en deux éléments qui sont : 
+ \begin{itemize}
+ 	\item[-] \textbf{La variance expliquée} : Variation des valeurs de $\hat{Y}$  autour de la moyenne. Somme des carrés expliquée par l'influence linéaire de $X$
+ 	\item[-] \textbf{La variance residuelle} : Variation résiduelle des valeurs de $Y$ autour de la droite des moindres carrés
+ \end{itemize}
+ \subsubsection{Calcul du coefficient de détermination $R^2$}
+ \begin{align*}
+ 	&\sumt y_t^2 = \sumt \hat{y}_t^2 + \sumt e_t^2  &\Leftrightarrow  \qquad \frac{\sum y_t^2}{\sum y_t^2} &= \frac{\sum \hat{y}_t^2}{\sum y_t^2} + \frac{\sum e_t^2}{\sum y_t^2} &\Leftrightarrow \qquad 1 &= \frac{\hbeta^2 \sum x_t^2}{\sum y_t^2} + \frac{\sum e_t^2}{\sum y_t^2} \\
+ 	&{\color{ForestGreen}\textrm{Or : } r = \hbeta \frac{\sqrt{\sum x_t^2}}{\sqrt{\sum y_t^2}} \quad  \textrm{D'où : }}  \\
+ 	&\Leftrightarrow  1 = r^2 + \frac{\sum e_t^2}{\sum y_t^2} \\
+ 	&\Leftrightarrow  r^2 = 1 - \frac{\sum e_t^2}{\sum y_t^2} \\
+ 	&{\color{red}\boxed{\Leftrightarrow  r^2 = 1 - \frac{\textrm{VR}}{\textrm{VT}} = \frac{\textrm{VE}}{\textrm{VT}}}} \\
+ 	&\textrm{Avec : }0\leq r^2 \leq 1
+ \end{align*}
+ \[ r^2 = \hbeta^2 \frac{\sum x_t^2}{\sum y_t^2} \quad \textrm{Dans le cas d'une regression lineaire : } r_{xy} = \sqrt{r^2} 
+\]
+\subsubsection{Test du coefficient de corrélation linéaire r}
+Statistique de test  : 
+\[T(n-2) \sim \frac{\hbeta - \upbeta }{\hat{\upsigma}_\varepsilon} \cdot \sqrt{\sum x_t^2}\]
+Rappel : 
+\[\hbeta = r \cdot \frac{\sqrt{\sum y_t^2}}{\sqrt{\sum x_t^2}} \qquad \textrm{et} \qquad \sige = \frac{\sum e_t^2}{n-2}\]
+D'où : 
+\[1 = r^2 + \frac{\sum e_t^2}{\sum y_t^2} \quad \Leftrightarrow \quad \sumt e_t^2 = (1- r^2) \sumt y_t^2 \]
+Donc :
+\[\sige = \frac{(1- r^2) \sum y_t^2}{n-2}\]
+Posons \  $H_0 : \upbeta = 0$, sous $H_0 : $
+\[T(n-2) \sim \frac{\hbeta}{\hat{\upsigma}_\varepsilon} \cdot \sqrt{\sum	 x_t^2} = r \cdot \frac{\cancel{\sqrt{\sum y_t^2}}}{\cancel{\sqrt{\sum x_t^2}}} \cdot \frac{\cancel{\sqrt{\sum x_t^2}}}{\sqrt{(1- r^2)} \cancel{\sqrt{\sum y_t^2}}} \cdot \sqrt{(n-2)} \]
+\[{\color{red}\boxed{T(n-2) \sim r \cdot \frac{\sqrt{n-2}}{\sqrt{1-r^2}}}}\]
+
+\textbf{Spécification du test}
+\[H_0 : \begin{tabular}{l} $\uprho = 0$ \\ $\hbeta = 0$ \end{tabular} \quad H_1:  \uprho \neq 0\]
+\textbf{Statistique de test}
+\[T(n-2) \sim r \cdot \frac{\sqrt{n-2}}{\sqrt{1-r^2}}\]
+\textbf{Intervalle d'acceptation}
+\begin{align*}
+	1- \upalpha &= Prob\left[\studn < T(n-2) < \studp\right] \\
+	&= Prob\left[\studn< r \cdot \frac{\sqrt{n-2}}{\sqrt{1-r^2}} < \studp \right] \\
+	&{\color{red}\boxed{= Prob\left[\left\lvert  r \cdot \frac{\sqrt{n-2}}{\sqrt{1-r^2}} \right\rvert < \studp\right]}}
+\end{align*}
+\textbf{RDD} \\
+Si $ \left\lvert  r \cdot \frac{\sqrt{n-2}}{\sqrt{1-r^2}} \right\rvert < \studp $ on accepte $H_0$ au risque de $\upalpha$ \\
+Si $\left\lvert  r \cdot \frac{\sqrt{n-2}}{\sqrt{1-r^2}} \right\rvert \geq \studp$ on rejette $H_0$ au risque de $\upalpha$
+
+\subsubsection{Tableau de l'analyse de la variance}
+\begin{center}
+\begin{tabular}{| c | c | c | c |}
+	\hline
+	Origine des variations & $\sum$ des carrés des écarts & DDL & Carrés moyens\\
+	\hline
+	VE & $Q_1 = \sum \hat{y}^2 = \hbeta^2 \sum x_t^2$ & $1$ & $\nicefrac{Q_1}{1} = \sum \hat{y}^2 $\\
+	\hline
+	VR & $Q_2 = \sum e_t^2$ & $n-2$ & $\nicefrac{Q_2}{n-2} = \sige$ \\
+	\hline
+	VT & $Q_3 = \sum y_t^2$ & $n-1$ & $\times$ \\
+	\hline
+\end{tabular}
+\end{center}
+{\color{ForestGreen}Remarque : $Q_3 \simeq Q_1 +Q_2$}
+\section{Test du coefficient de détermination $R^2$}
+\textbf{Spécification du test}
+\[H_0 : \uprho^2 = 0 \quad H_1 : \uprho^2 \neq 0 \]
+\textbf{Statistique de test}
+\[T(n-2) \sim \frac{r}{\sqrt{1-r^2}}\]
+\[F_c = \frac{r^2}{1-r^2} (n-2) \sim F(1,n-2)\]
+\textbf{Intervalle d'acceptation}
+\[1 - \upalpha = Prob\left[\frac{r^2}{1-r^2} (n-2) < F_{1-\upalpha}(1,n-2)\right]\]
+\textbf{RDD}\\
+Si $F_c <  F_{1-\upalpha}(1,n-2)$ On accepte $H_0$ au risque de $\upalpha$ \\
+Si $F_c \geq  F_{1-\upalpha}(1,n-2)$ On rejette $H_0$ au risque de $\upalpha$ \\
+
+ \section{Utilisation du modèle de régression en prévision}
+ \subsection{Intervalle de confiance : de la valeur moyenne de $Y$ connaissant une valeur donnée de $X$}
+ $X_0$ : valeur donnée de $X$\\
+ $Y_0 = \upalpha + \upbeta X_0 + \varepsilon_0 \qquad \hat{Y}_t = \halpha + \hbeta X_t \qquad \Rightarrow \qquad \hat{Y}_0  = \halpha + \hbeta X_0$ \\
+ On appelle valeur moyenne de $Y$ connaissant une valeur donnée de X : 
+ \[E\left(Y_0/X_0\right) = \upalpha + \upbeta X_0\]
+ $\hat{Y}_0$ est un estimateur linéaire sans biais de $\upalpha + \upbeta X_0$ et de $E\left(Y_0/X_0\right)$
+ \[E\left(\hat{Y}_0\right) = \upalpha + \upbeta X_0 \qquad {\color{ForestGreen}E\left(\hat{Y}_0\right) = E\left(\halpha\right) + E\left(\hbeta X_0 \right) = \upalpha + \upbeta X_0}\]
+ \subsection{Tests d'hypothèse : comparaison d'une prévision ponctuelle à la droite des moindres carrés}
+
+\section{Bibliographie}
+\begin{itemize}
+    \item Bourbonnais - Econométrie - Dunod
+    \item Johnston Dinardo - Econométrie
+    \item Greene - Econométrie - Pearson 
+\end{itemize}
+
+
+\end{document}
