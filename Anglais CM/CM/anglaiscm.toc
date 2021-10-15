@@ -1,0 +1,7 @@
+\contentsline {section}{\numberline {1}The European union}{2}{}%
+\contentsline {subsection}{\numberline {1.1}Some basic facts}{2}{}%
+\contentsline {subsubsection}{\numberline {1.1.1}Historical landmarks}{2}{}%
+\contentsline {subsubsection}{\numberline {1.1.2}The big enlargement}{2}{}%
+\contentsline {subsection}{\numberline {1.2}General information}{2}{}%
+\contentsline {subsubsection}{\numberline {1.2.1}EU treaties : basis for democratic coopertion built on law}{3}{}%
+\contentsline {subsection}{\numberline {1.3}Member states}{3}{}%

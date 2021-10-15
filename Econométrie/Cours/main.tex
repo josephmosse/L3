@@ -1,0 +1,237 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{multicol}
+\usepackage{array}
+\usepackage{upgreek}
+\usepackage{amsmath}
+\usepackage{physics}
+
+\usepackage[dvipsnames]{xcolor}
+\usepackage{geometry}
+
+\title{Econométrie}
+
+\begin{document}
+{\Huge Économétrie}
+\tableofcontents
+\newpage
+\section{Introduction}
+\subsection{Définition}
+L'économétrie est le domaine de l'économie qui s'occupe de l'application de la statistique mathématique et des outils de l'inférence statistique à la mesure empirique des relations postulées par la théorie économique
+\subsection{Prix Nobels}
+1980, Laurence Klein : Modèles macro-économétriques et leurs applications a l'analyse des fluctuations économiques\\
+1989, Trygve Haavelmo : Approche probabiliste et les modèles a équations simultanées\\
+2000, James Heckman : Travaux sur les théories et méthodes d'analyse des échantillons sélectifs\\
+2000, Mac Fadden : Économétrie des choix discrets\\
+2003, Robert F. Engle : Volatilité des séries temporelles pour les modèles ARCH\
+2003, Clive Granger : Théorie de la cointégration
+\section{Chapitre 1}
+\subsection{Des Origines de l'économétrie à l'âge d'or de la modélisation Macro-économique}
+\subsubsection{Premières études [17eme 18eme siècle]}
+L'autorité de la loi naturelle se dégage de celle de la religion et du prince\\
+Apparition des statistiques
+\begin{center}
+\begin{tabular}{m{200pt}|m{200pt}}
+\textbf{Statistique Allemande} & \textbf{Arithmétique Politique} (Angleterre)\\
+La Statistique est un moyen de classer les savoirs hétéroclites & Utilisation de techniques statistiques pour le dépouillement des registres paroissiaux \\
+\textcolor{red}{Conring, Herman} & \textcolor{red}{Petty, William } : études natalité/mortalité\\
+& \textcolor{red}{King, Gregory} : formalisation loi de demande
+\end{tabular}
+\end{center}
+\subsubsection{Genèse de l'économétrie [19\textsuperscript{ème} siècle]}
+La statistique mathématique et l'évolution probabiliste de multiples champs permet de donner une dimension statistique à la représentation de la société
+\begin{center}
+    \begin{tabular}{m{60pt}|m{300pt}}
+        \textcolor{red}{Galton} & Statistique mathématique et Analyse mathématique de la régression (corrélation)\\
+        \hline
+        \textcolor{red}{Edgeworth} & Fonction de densité de la loi normale multivariée. Détermine les expressions de coefficient de régression multiple \\
+        \hline
+        \textcolor{red}{Pearson} & Coefficient de corrélation multiple : Analyse de la relation entre variables\\
+        \hline
+        \textcolor{red}{Yule} & Paupérisme, relation avec les mesures d'assistance\\
+        \hline
+        \textcolor{red}{Hocker} & Utilisation de variables retardées\\
+        \hline
+        \textcolor{red}{Lenoir} & Première estimation des lois d'offre et demande\\
+        \hline
+        \textcolor{red}{Moore} & Problème de détermination des salaires, utilisation des corrélations multiples, auto-corrélation et corrélogrammes 
+    \end{tabular}
+\end{center}
+\centering\textbf{Conjoncturistes Américains} : \\
+\textcolor{red}{Juglar, Kitchin , Kondratieff}\\
+\raggedright
+Analyse des cycles économiques \(\neq\) économie mathématique (Moore)\\
+\begin{itemize}
+    \item Création d'instituts de conjecture (Russie 1920)
+    \item Création du NBER (national bureau of economics research) 
+\end{itemize}
+
+\subsubsection{Imbrication de l'économie, des mathématiques et de la statistique [20\textsuperscript{ème} siècle]}
+A la fin des années 20, l'économétrie gagne de l'intérêt en Europe\\
+Création de la société d'économétrie le 29/12/1930 à Cleveland avec \textcolor{red}{Frish},       \textcolor{red}{Timbergen}. Elle officialise l'économétrie comme discipline et nomme \textcolor{red}{Fisher} président. La société d'économétrie recrute \textcolor{red}{Cowles}, qui, en contre-partie, demande la création d'une revue (\textcolor{red}{Econometrica}, RC : Frish) et la création d'un organisme de recherche \textcolor{red}{Cowles Foundation}\\ \textcolor{red}{Roos} est nommé premier président de la Cowles foundation\\
+%\begin{itemize}
+%\color{ForestGreen}
+%    \item Système d'équations multiples
+%    \item Données disponibles sous la forme de données temporelles
+%    \item Introduction dans les équations de termes aléatoires 'pouvant expliquer l'influence de causes irrégulières multiples)
+%    \item Utilisation de données agrégées
+%\end{itemize}
+
+\begin{itemize}
+    \item[-] Avant 1930 la théorie des probabilités est pratiquement inutilisée jusqu'à ce que Haavelmo propose d'y apporter une approche stochastique (aléatoire)
+    \item[-] Apparition d'une chaire d'économétrie
+    \item[-] Diversification des sources de financement par l'obtention de subventions (Rockfeller, NBER)
+    \item[-] Le terme d'identification apparaît après les travaux de Haavelmo
+\end{itemize}
+
+Tous ces travaux marquent le début de la modélisation macro-économique qui connaitra son age d'or dans les 60's - 70's avec \textcolor{red}{Keynes} et les comptes nationaux
+
+Âge d'or de la modélisation macro-économique et essort des modèles dynamiques
+\begin{enumerate}
+    \item Introduction de mécanismes dynamiques dans les modèles économétriques
+    \item Modèles a retard échelonnés \textcolor{red}{Koyck}
+    \item Développmeent des prévisions à a court terme \textcolor{red}{Box \& Jenkins}
+\end{enumerate}
+
+\subsection{De la crise de la modélisation macro-économique à l'âge d'or de l'économétrie}
+\subsubsection{Années 70 et la fin de l'âge d'or de la modélisation marco-économétrique selon la tradition de la Cowles Foundation}
+\begin{itemize}
+    \item[-] Premier choc pétrolier $\rightarrow$ Remise en cause des modélisations
+    \item[-] \textcolor{red}{Sims} $\rightarrow$ Modèles VAR (\textit{vector auto regressive})
+    \item[-] Fonctions de réponse impulsionelle
+    \item[-] Etude de la causalité
+    \item[-] Test de la racine unitaire (Si les séries sont stationnaires ou non)
+    \item[-] Apparition de la modélisation ARCH, instauration d'une économétrie plurielle (modèle logit, probit)
+    \item[-] Introduction des principes Baillisiens
+\end{itemize}
+
+\section{Le modèle linéaire simple à deux variables et généralisation a k variables}
+Modèle économétrique : Représentation simplifiée mais la plus exhaustive possible d'une entité économique donnée sous sa forme la plus courante représentée par un système d'équation (souvent linéaire) et relie des types de variables similaires
+\begin{center}
+    Variables explicatives $\rightarrow$ Variables exogènes\\
+    Variables expliquées $\rightarrow$ Variables endogènes
+\end{center}
+
+\[ Y = f(X_1,X_2,..,X_n) \quad \textrm{une seule variable explicative } Y \textrm{ et une expliquée }X \]
+
+\( Y = \upalpha + \upbeta X\) (\(\upalpha \textrm{ et } \upbeta\) sont des paramètres inconnus). Cette relation est exacte, or cela est impossible en économie, on doit donc introduire un terme aléatoire (aléa ou erreur). cette variable a pour rôle de synthétiserl'ensemble des influences sur \(Y \textrm{ que } X\) ne peut expliquer. \newline
+
+\textbf{3 Types de modèles :}
+\begin{itemize}
+    \item Modèle en série chronologique (évolution au cours du temps)
+    \[ Y_t = \upalpha + \upbeta X_t + \varepsilon_t \]
+    \item Modèle en coupe instantanée (à un moment donné dans le temps)
+    \[ Y_i = \upalpha + \upbeta X_i + U_i \]
+    \item Modèle de panel
+    \[ Y_{ti} = \upalpha + \upbeta X_{ti} + U_{it}\]
+\end{itemize}
+Le fait d'introduire un aléa permet de faire des tests sur \(\upalpha \textrm{ et } \upbeta\). \newline
+
+Tout modèle non linéaire peut se ramener à un modèle linéaire (transformation par anamorphose).
+\begin{center}
+    \textbf{\textcolor{ForestGreen}{Exemples (transformation)}}\\
+    \begin{tabular}{c|c|c}
+         \( Y = \upalpha e^{\upbeta X}\) & \( Y = \upalpha X^{\upbeta}\) & \( Y = \frac{\upalpha}{X^\upbeta}\) \\
+         \( \ln Y = \ln \upalpha + \upbeta X  \) & \( \ln Y = \ln \upalpha + \upbeta \ln X \) & \( \ln Y = \ln \upalpha - \upbeta \ln X \) \\
+         \( Y' = \upalpha' + \upbeta X \) & \( Y' = \upalpha' + \upbeta X' \) & \( Y' = \upalpha' - \upbeta X' \)
+    \end{tabular}
+\end{center}
+
+\begin{align*}
+    Y_t = \frac{Y_0}{1 + \upbeta X^t} &\Leftrightarrow \frac{Y_0}{Y_t} - 1 = \upbeta X^t \\
+    \ln (\frac{Y_0}{Y_t} - 1) = \ln (\upbeta X^t) &\Leftrightarrow \ln Y_0 - \ln Y_t = \ln \upbeta + t \ln X \\
+    Y' &= \upbeta' + t X'
+\end{align*}
+
+
+
+
+
+\subsection{Les hypothèses de base du modèle}
+
+Il existe deux méthodes qui permettent d'estimer \(\upalpha \textrm{ et } \upbeta\)
+\begin{itemize}
+    \item Méthode des MCO (moindres carrés ordinaires)
+    \item Méthode du maximum de vraisemblance
+\end{itemize}
+\begin{center}
+    \textbf{Hypothèses}
+\end{center}
+\begin{itemize}
+	\item[*] \(X\) est une variable contrôlée (indépendante de l'aléa). \(Cov(X,\varepsilon) = 0\)
+    \item[*] $\varepsilon \rightarrow$ une hypothèse de normalité. $E(\varepsilon_t) = 0$ \\
+    En moyenne l'ensemble des facteurs non expliqués par la régression (qui se retrouvent dans l'aléa) tendent a se compenser.
+    \item[*] Hypothèse d'homosédasticité : 
+    \\la variance de $\varepsilon_t$ est constante quel que soit le sous échantillon prélevé dans l'intervalle $\{1;n\}$ \\
+    $E(\varepsilon_t^2) = \upsigma_t^2$
+    \item[*] Hypothèse de non autocorrélation de l'aléa :\\
+    La distribution de $\varepsilon_t$ qui correspond à $X_t$ est indépendante de celle de $\varepsilon_{t'}$ qui correspond à $X_{t'}$\\
+    $Cov(\varepsilon_t,\varepsilon_{t'}) = E(\varepsilon_t \varepsilon_{t'}) = 0 \quad \color{ForestGreen}(\forall t \neq t')$
+\end{itemize}
+\newpage
+
+\subsection{Les estimateurs des MCO (moindres carrés ordinaire)}
+La méthode des MCO consiste à \textcolor{red}{minimiser la somme des carrés des écarts}. Écarts entre les valeurs observées de la variable \(Y_t\) et la valeur calculée de cette même variable \(\hat{Y_t}\). \\ 
+Écart mesuré respectivement par les projections parallèlement à l'axe des ordonnées des points sur la droite de régression. \\
+\begin{center}
+	\textbf{Programme de Minimisation :}
+\end{center}
+\begin{gather*}
+	\min \sum_t (Y_t - \hat{Y_t})^2 \\
+	\min \sum_t \varepsilon^2_t = \min \sum_t ( Y_t - \hat{Y_t}^2 ) = \min \sum_t (Y_t - (\hat{\upalpha} + \hat{\upbeta} X_t))^2 \\ 
+\end{gather*}
+Conditions de premier ordre :
+\begin{multicols}{2}
+\begin{gather*}
+	\pdv{\varphi}{\hat{\upalpha}} = -2 \sum_t (Y_t - \hat{\upalpha} - \hat{\upbeta} X_t ) = 0 \\
+	\Leftrightarrow \quad n \overline{Y} - n \hat{\upalpha} - \hat{\upbeta} n \overline{X} = 0 \\
+	\Leftrightarrow \quad \hat{\upalpha} = \overline{Y} - \hat{\upbeta} - \overline{X}
+\end{gather*}
+\columnbreak
+
+\begin{gather*}
+	\pdv{\varphi}{\hat{\upbeta}} = -2 \sum_t (Y_t - \hat{\alpha} - \hat{\upbeta} X_t) X_t \\
+	\Leftrightarrow \quad \sum_t (Y_t - (\overline{Y} - \hat{\upbeta} \overline{X} - \hat{\upbeta} X_t) X_t = 0 \\
+	\Leftrightarrow \quad \sum_t X_tY_t - \overline{Y} \sum_t X_t + \hat{\upbeta} \overline{X} \sum_t X_t - \hat{\upbeta} \sum_t X_t^2 = 0\\
+	\Leftrightarrow \quad \sum_t X_tY_t - \overline{Y} n \overline{X} + \hat{\upbeta} \overline{X} n \overline{X} - \hat{\upbeta} \sum_t X_t^2 = 0 \\
+	\Leftrightarrow \quad \sum_t X_tY_t - n \overline{X} \overline{Y} - \hat{\upbeta} (\sum_t X_t^2 -n \overline{X^2}) = 0 \\
+	\Leftrightarrow \quad \hat{\upbeta} = \frac{\sum_t X_tY_t - n \overline{X} \overline{Y}}{\sum_t X_t^2 -n \overline{X^2}} = \frac{n Cov(X,Y)}{n V(X)}
+\end{gather*}
+\end{multicols}
+\textit{D'où}
+{
+\color{red}
+\begin{align*}
+	\hat{\upbeta} &= \frac{\frac{1}{n}\sum_t X_tY_t - \overline{X} \overline{Y}}{\frac{1}{n}\sum_t X_t^2 - \overline{X^2}} = \frac{Cov(X,Y)}{V(X)} \\
+	\hat{\upalpha} &= \overline{Y} - \hat{\upbeta} - \overline{X}
+\end{align*}
+}
+Conditions de second ordre : 
+\begin{align*}
+	\pdv[2]{\varphi}{\hat{\upalpha}} &= 2 >0 \\
+	\pdv[2]{\varphi}{\hat{\upbeta}} &= 2 >0
+\end{align*}
+La fonction est convexe, on a donc bien un minimum 
+\newpage
+La droite de régression passe par le point moyen qui est le centre de gravité (couple \(\bar{X},Y\)).
+
+Données centrées : 
+\begin{align*}
+	x_t &= X_t - \bar{X} &\hat{y_t} = \hat{Y_t} - \bar{Y}\\
+	y_t &= Y_t - \bar{Y} &\hat{x_t} = \hat{X_t} - \bar{Y}\\
+\end{align*}
+On cherche \(\hat{y} \) :
+\begin{align*}
+	\hat{Y} = \hat{y_t} + \bar{Y} = \hat{\upalpha} + \hat{\upbeta} X_t  = \hat{\upalpha} + \hat{\upbeta} (x_t + \bar{X})	
+\end{align*} 
+
+
+\section{Bibliographie}
+\begin{itemize}
+    \item Bourbonnais - Econométrie - Dunod
+    \item Johnston Dinardo - Econométrie
+    \item Greene - Econométrie - Pearson 
+\end{itemize}
+
+
+\end{document}
