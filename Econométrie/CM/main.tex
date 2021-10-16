@@ -458,7 +458,31 @@ Si $F_c \geq  F_{1-\upalpha}(1,n-2)$ On rejette $H_0$ au risque de $\upalpha$ \\
  On appelle valeur moyenne de $Y$ connaissant une valeur donnée de X : 
  \[E\left(Y_0/X_0\right) = \upalpha + \upbeta X_0\]
  $\hat{Y}_0$ est un estimateur linéaire sans biais de $\upalpha + \upbeta X_0$ et de $E\left(Y_0/X_0\right)$
- \[E\left(\hat{Y}_0\right) = \upalpha + \upbeta X_0 \qquad {\color{ForestGreen}E\left(\hat{Y}_0\right) = E\left(\halpha\right) + E\left(\hbeta X_0 \right) = \upalpha + \upbeta X_0}\]
+ \[E(\hat{Y}_0) = \upalpha + \upbeta X_0 \qquad {\color{ForestGreen}E(\hat{Y}_0) = E(\halpha) + E(\hbeta X_0) = \upalpha + \upbeta X_0}\]
+ \[\hat{Y}_0 \sim N\left(\underbrace{E\left(\hat{Y}_0\right)}_{\upalpha + X_0 \upbeta}, \underbrace{\sqrt{V\left(\hat{Y}_0\right)}}_?\right)\]
+ Calcul de $V(\hat{Y}_0)$
+ \begin{equation*}
+ 	\begin{split}
+ 	V(\hat{Y}_0) &= V(\halpha + \hbeta	X_0) = V(\halpha) + V(\hbeta X_0) + 2 \operatorname{Cov} (\halpha, \hbeta X_0) \\
+ 	&= V(\halpha) + X_0^2 V(\hbeta) + 2 \operatorname{Cov} (\halpha, \hbeta X_0) 	
+ 	\end{split}
+ \end{equation*}
+ Avec
+ \begin{equation*}
+ \begin{split}
+ V(\hbeta) &= \frac{\sig}{\sqrt{\sum x_t^2}} \\
+ V(\halpha) &= \sig \cdot \frac{\sqrt{\sum X_t^2}}{\sqrt{n \sum x_t^2}} = \sig \cdot \left(\frac{\sum x_t^2 + n \overline{X}^2}{n \sum x_t^2}\right) = \sig \left(\frac{1}{n} + \frac{\overline{X}^2}{\sum x_t^2}\right) \\
+ \operatorname{Cov} (\halpha, \hbeta) &= - \frac{\overline{X}}{\sum x_t^2} \cdot \sig 	
+ \end{split}
+ \end{equation*}
+ d'où
+ \begin{equation*}
+ 	\begin{split}
+		V(\hat{Y}_0) &= \sig \left(\frac{1}{n} + \frac{\overline{X}^2}{\sum x_t^2}\right) + X_0^2 \left(\frac{\sig}{\sqrt{\sum x_t^2}}\right) + 2 X_0 \left(- \frac{\overline{X}}{\sum x_t^2} \cdot \sig 	\right) \\
+		&= \sigma \left[\frac{1}{n} + \frac{\overline{X} + X_0^2 - 2 X_0\overline{X}}{\sum x_t^2}\right] \\
+		&= \sig \left[\frac{1}{n} + \frac{(X_0-\overline{X}^2}{\sum x_t^2}\right]
+ 	\end{split}
+ \end{equation*}
  \subsection{Tests d'hypothèse : comparaison d'une prévision ponctuelle à la droite des moindres carrés}
 
 \section{Bibliographie}
