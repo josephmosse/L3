@@ -1,9 +1,13 @@
+<<<<<<< HEAD
 This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.6) (preloaded format=pdflatex 2021.9.15)  16 OCT 2021 19:46
+=======
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.22)  15 OCT 2021 17:36
+>>>>>>> 32bf6990d4b2fa4ef2fdb29de167c2fc038e4660
 entering extended mode
 **./main.tex
 (main.tex
-LaTeX2e <2021-06-01>
-L3 programming layer <2021-06-01>
+LaTeX2e <2021-06-01> patch level 1
+L3 programming layer <2021-08-27>
 (C:\Users\Joseph\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
 Document Class: article 2021/02/12 v1.4n Standard LaTeX document class
 (C:\Users\Joseph\AppData\Local\Programs\MiKTeX\tex/latex/base\size10.clo
@@ -177,15 +181,15 @@ Package: physics
 (C:\Users\Joseph\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/xparse\xpar
 se.sty
 (C:\Users\Joseph\AppData\Local\Programs\MiKTeX\tex/latex/l3kernel\expl3.sty
-Package: expl3 2021-06-01 L3 programming layer (loader) 
+Package: expl3 2021-08-27 L3 programming layer (loader) 
 
 (C:\Users\Joseph\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pd
 ftex.def
-File: l3backend-pdftex.def 2021-05-07 L3 backend support: PDF output (pdfTeX)
+File: l3backend-pdftex.def 2021-08-04 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count278
 \l__pdf_internal_box=\box100
 ))
-Package: xparse 2021-06-01 L3 Experimental document command parser
+Package: xparse 2021-08-27 L3 Experimental document command parser
 ))
 (C:\Users\Joseph\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
 Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
@@ -362,10 +366,10 @@ LaTeX Warning: Command \texttwosuperior invalid in math mode on input line 330.
 Missing character: There is no ² in font cmr10!
 [11] [12] [13] [14] [15] [16] [17] (main.aux) ) 
 Here is how much of TeX's memory you used:
- 3741 strings out of 478864
- 50032 string characters out of 2848186
- 391804 words of memory out of 3000000
- 21638 multiletter control sequences out of 15000+600000
+ 3743 strings out of 478927
+ 50079 string characters out of 2852061
+ 388573 words of memory out of 3000000
+ 21575 multiletter control sequences out of 15000+600000
  412624 words of font info for 59 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  70i,20n,81p,579b,229s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -395,7 +399,11 @@ rs/Joseph/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eurm5
 .pfb><C:/Users/Joseph/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
 /euler/eurm7.pfb><C:/Users/Joseph/AppData/Local/Programs/MiKTeX/fonts/type1/pub
 lic/amsfonts/latxfont/line10.pfb>
+<<<<<<< HEAD
 Output written on main.pdf (17 pages, 286899 bytes).
+=======
+Output written on main.pdf (17 pages, 283610 bytes).
+>>>>>>> 32bf6990d4b2fa4ef2fdb29de167c2fc038e4660
 PDF statistics:
  167 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
