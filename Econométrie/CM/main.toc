@@ -1,3 +1,4 @@
+\contentsline {part}{I\hspace {1em}Modèle linéaire simple}{3}{}%
 \contentsline {section}{\numberline {1}Introduction}{3}{}%
 \contentsline {subsection}{\numberline {1.1}Définition}{3}{}%
 \contentsline {subsection}{\numberline {1.2}Prix Nobels}{3}{}%
@@ -30,4 +31,18 @@
 \contentsline {section}{\numberline {6}Utilisation du modèle de régression en prévision}{16}{}%
 \contentsline {subsection}{\numberline {6.1}Intervalle de confiance : de la valeur moyenne de $Y$ connaissant une valeur donnée de $X$}{16}{}%
 \contentsline {subsection}{\numberline {6.2}Tests d'hypothèse : comparaison d'une prévision ponctuelle à la droite des moindres carrés}{17}{}%
-\contentsline {section}{\numberline {7}Bibliographie}{17}{}%
+\contentsline {section}{\numberline {7}Le modèle linéaire simple à plusieurs variables explicatives}{19}{}%
+\contentsline {subsection}{\numberline {7.1}Les estimateurs des moindres carrés ordinaires (MCO)}{19}{}%
+\contentsline {subsubsection}{\numberline {7.1.1}Spécifications matricielles du modèle}{19}{}%
+\contentsline {subsubsection}{\numberline {7.1.2}Les hypothèses de base du MLGS}{19}{}%
+\contentsline {subsubsection}{\numberline {7.1.3}Les estimateurs des moindres carrés ordinaires}{19}{}%
+\contentsline {subsubsection}{\numberline {7.1.4}Les propriétés des estimateurs des moindres carrés ordinaires}{19}{}%
+\contentsline {subsection}{\numberline {7.2}Test des estimateurs}{19}{}%
+\contentsline {subsection}{\numberline {7.3}L'analyse de la variance et test du coefficient de détermination}{19}{}%
+\contentsline {subsection}{\numberline {7.4}Utilisation du modèle en prévision}{19}{}%
+\contentsline {part}{II\hspace {1em}Modèle linéaire général à $k$ paramètres estimés}{19}{}%
+\contentsline {section}{\numberline {8}Test de normalité}{19}{}%
+\contentsline {subsection}{\numberline {8.1}Test de symétrie normale (Skewness)}{19}{}%
+\contentsline {subsection}{\numberline {8.2}Test d'aplatissement normal (Kurtosis)}{19}{}%
+\contentsline {subsection}{\numberline {8.3}Test de Jarque-Bera}{19}{}%
+\contentsline {section}{\numberline {9}Bibliographie}{19}{}%

@@ -35,6 +35,7 @@
 {\Huge Économétrie}
 \tableofcontents
 \newpage
+\part{Modèle linéaire simple}
 \section{Introduction}
 \subsection{Définition}
 L'économétrie est le domaine de l'économie qui s'occupe de l'application de la statistique mathématique et des outils de l'inférence statistique à la mesure empirique des relations postulées par la théorie économique
@@ -479,33 +480,96 @@ Si $F_c \geq  F_{1-\upalpha}(1,n-2)$ On rejette $H_0$ au risque de $\upalpha$ \\
  \begin{equation*}
  	\begin{split}
 		V(\hat{Y}_0) &= \sig \left(\frac{1}{n} + \frac{\overline{X}^2}{\sum x_t^2}\right) + X_0^2 \left(\frac{\sig}{\sqrt{\sum x_t^2}}\right) + 2 X_0 \left(- \frac{\overline{X}}{\sum x_t^2} \cdot \sig 	\right) \\
-		&= \sigma \left[\frac{1}{n} + \frac{\overline{X} + X_0^2 - 2 X_0\overline{X}}{\sum x_t^2}\right] \\
-<<<<<<< HEAD
-		&= \sig \left[\frac{1}{n} + \frac{(X_0-\overline{X}^2)}{\sum x_t^2}\right] \\
-		&\boxed{\hat{Y}_0 \sim N \left(\upalpha + \upbeta X_0 ;  \upsigma_\varepsilon \sqrt{\frac{1}{n} + \frac{(X_0-\overline{X}^2)}{\sum x_t^2}}\right)}
+		&= \sig \left[\frac{1}{n} + \frac{\overline{X}^2 + X_0^2 - 2 X_0\overline{X}}{\sum x_t^2}\right] \\
+		&= \sig \left[\frac{1}{n} + \frac{(X_0-\overline{X})^2}{\sum x_t^2}\right] \\
+		&\boxed{\hat{Y}_0 \sim N \left(\upalpha + \upbeta X_0 ;  \upsigma_\varepsilon \sqrt{\frac{1}{n} + \frac{(X_0-\overline{X})^2}{\sum x_t^2}}\right)}
  	\end{split}
  \end{equation*}
  $\upsigma_\varepsilon$ Inconnu, d'où studentisation :
  \begin{equation*}
- 	(n-2) \frac{\sige}{\sig} \sim  \upchi^2 (n-2) \qquad \hat{Y}_0 \sim N \left(\upalpha + \upbeta X_0 ;  \upsigma_\varepsilon \sqrt{\frac{1}{n} + \frac{(X_0-\overline{X}^2)}{\sum x_t^2}}\right)
+ 	(n-2) \frac{\sige}{\sig} \sim  \upchi^2 (n-2) \qquad \hat{Y}_0 \sim N \left(\upalpha + \upbeta X_0 ;  \upsigma_\varepsilon \sqrt{\frac{1}{n} + \frac{(X_0-\overline{X})^2}{\sum x_t^2}}\right)
  \end{equation*}
  \begin{equation*}
  	\begin{split}
- 	t_c &= \frac{\frac{\hat{Y}_0 - \upalpha + \upbeta X_0}{\upsigma_\varepsilon \sqrt{\frac{1}{n} + \frac{(X_0-\overline{X}^2)}{\sum x_t^2}}}}{\sqrt{\frac{n-2}{n-2} \cdot \frac{\sige}{\sig}}} \sim T(n-2) \\
- 	t_c &=\frac{\hat{Y}_0 - \upalpha + \upbeta X_0}{\hat{\upsigma}_\varepsilon \sqrt{\frac{1}{n} + \frac{(X_0-\overline{X}^2)}{\sum x_t^2}}} \sim T(n-2)
+ 	t_c &= \frac{\frac{\hat{Y}_0 - (\upalpha + \upbeta X_0)}{\upsigma_\varepsilon \sqrt{\frac{1}{n} + \frac{(X_0-\overline{X})^2}{\sum x_t^2}}}}{\sqrt{\frac{n-2}{n-2} \cdot \frac{\sige}{\sig}}} \sim T(n-2) \\
+ 	t_c &=\frac{\hat{Y}_0 - (\upalpha + \upbeta X_0)}{\hat{\upsigma}_\varepsilon \sqrt{\frac{1}{n} + \frac{(X_0-\overline{X})^2}{\sum x_t^2}}} \sim T(n-2)
  	\end{split}
  \end{equation*}
  Intervalle de confiance : 
  \begin{equation*}
  	\begin{split}
  	1 - \alpha &= Prob \left[t_{\alpha/2} \leq T(n-2) \leq t_{1-\upalpha/2}\right] \\
- 	&= \left[t_{\alpha/2} \leq T(n-2) \leq t_{1-\upalpha/2}\right]
-=======
-		&= \sig \left[\frac{1}{n} + \frac{(X_0-\overline{X}^2}{\sum x_t^2}\right]
->>>>>>> 32bf6990d4b2fa4ef2fdb29de167c2fc038e4660
+ 	&= Prob \left[t_{\alpha/2} \leq \frac{\hat{Y}_0 - (\upalpha + \upbeta X_0)}{\hat{\upsigma}_\varepsilon \sqrt{\frac{1}{n} + \frac{(X_0-\overline{X})^2}{\sum x_t^2}}} \leq t_{1-\upalpha/2}\right] \\
+ 	&= Prob \left[\hat{Y}_0 - \studp \cdot \hat{\upsigma}_\varepsilon \sqrt{\frac{1}{n} + \frac{(X_0 - \overline{X})^2}{\sum x_t^2}} \leq \upalpha + \upbeta X_0 \leq \hat{Y}_0 - \studn \cdot \hat{\upsigma}_\varepsilon \sqrt{\frac{1}{n} + \frac{(X_0 - \overline{X})^2}{\sum x_t^2}} \right] \\
+ 	&{\color{red}\boxed{=  Prob\left(\begin{cases}\upalpha + \upbeta X_0 \\ E(Y_0/X_0) \\ Y_0\end{cases} \in \left[\hat{Y}_0 \pm \studn \cdot \hat{\sigma}_\varepsilon \sqrt{\frac{1}{n} + \frac{(X_0 - \overline{X})^2}{\sum x_t^2}}\right]\right)}}
  	\end{split}
  \end{equation*}
  \subsection{Tests d'hypothèse : comparaison d'une prévision ponctuelle à la droite des moindres carrés}
+Calcul de la statistique de test : 
+\begin{itemize}
+	\item Calcul de $\upsigma^2_{\hat{Y}_0}$
+	\begin{equation*}
+		\begin{split}
+			Y_0 &= \upalpha + \upbeta X_0 \\
+			\hat{Y}_0 &= \halpha + \hbeta X_0 \\
+			Y_0 - \hat{Y}_0 &= \varepsilon_0 - (\halpha - \upalpha) - (\hbeta - \upbeta) X_0 = Z_0
+ 		\end{split}
+	\end{equation*}
+	\item Détermination de la loi de $Z_0$
+	\begin{equation*}
+		\hat{Y}_0 \sim  N \quad  \Rightarrow  \quad Z_0 \sim N(E(Z_0,) , \upsigma_{Z_0})
+	\end{equation*}
+	\begin{itemize}
+		\item Espérance de $Z_0$ : 
+		\begin{equation*}
+			E(Z_0) = E(Y_0 - \hat{Y}_0) = E(\varepsilon) - \underbrace{E(\halpha - \upalpha)}_{=0} - \underbrace{E[(\hbeta - \upbeta) X_0]}_{=0}= \underbrace{E(\varepsilon) = 0}_{\color{ForestGreen}\substack{\text{Hypothèse} \\ \textrm{de normalité}}}
+		\end{equation*}
+		$\hat{Y}_0$ est un ESB de $Y_0$
+		\item Variance de $Z_0$
+		\begin{equation*}
+			\begin{split}
+				V(Z_0) &= V [(\upalpha + \upbeta X_0) -\hat{Y}_0] \\
+				&= V(\upalpha + \upbeta X_0) + V(\hat{Y}) - \underbrace{\operatorname{Cov} (\upalpha + \upbeta X_0, \hat{Y}_0)}_{\color{ForestGreen}\substack{=0 \\ \textrm{Indépendance}}} \\ 
+				&= V(\varepsilon_0) + V(\hat{Y}_0) \\
+				&= \sig  + \sig \left(\frac{1}{n} + \frac{(X_0-\overline{X})^2}{\sum x_t^2}\right)\\
+				V(Z_0) &= \sig \left(1 + \frac{1}{n} + \frac{(X_0 - \overline{X})^2}{\sum x_t^2}\right)
+			\end{split} 
+		\end{equation*}
+	\end{itemize}
+\end{itemize}
+\textbf{Spécification du test}
+\begin{equation*}
+	H_0 : \begin{cases} E(Y_0 / X_0) \\ \upalpha + \upbeta X_0 \\Y_0 \end{cases} = \text{Constante} \qquad H_1 : E(Y_0 /X_0) \neq \text{Constante}
+\end{equation*}
+\textbf{Statistique de test}
+\begin{equation*}
+		t_c = \frac{\hat{Y}_0 - (\upalpha + \upbeta X_0)}{\hat{\upsigma}_\varepsilon \sqrt{1 + \frac{1}{n} + \frac{(X_0 - \overline{X})^2}{\sum x_t^2}}} \sim T(n-2)
+\end{equation*}
+\textbf{Intervalle d'acceptation}
+\begin{equation*}
+	\begin{split}	
+		1 - \upalpha &= Prob\left[\studn < T(n-2) <\studp \right] \\
+		&= Prob\left[\studn < \frac{\hat{Y}_0 - (\upalpha + \upbeta X_0)}{\hat{\upsigma}_\varepsilon \sqrt{1 + \frac{1}{n} + \frac{(X_0 - \overline{X})^2}{\sum x_t^2}}} <\studp \right] \\
+		&{\color{red}\boxed{= Prob\left[\hat{Y}_0 \in \left(\begin{cases}\upalpha + \upbeta X_0 \\ E(Y_0/X_0 \\ Y_0\end{cases} \pm \begin{cases}\studn \\ \studp\end{cases} \hat{\upsigma}_\varepsilon \sqrt{1 + \frac{1}{n} + \frac{(X_0 - \overline{X})^2}{\sum x_t^2}} \right)\right]}}
+	\end{split}
+\end{equation*}
+\textbf{RDD} \\
+Si $\hat{Y}_0 \in$ IA on accepte $H_0$ au risque de $\upalpha$ \\
+Si $\hat{Y}_0 \notin$ IA on rejette $H_0$ au risque de $\upalpha$
+\section{Le modèle linéaire simple à plusieurs variables explicatives}
+\subsection{Les estimateurs des moindres carrés ordinaires (MCO)}
+\subsubsection{Spécifications matricielles du modèle}
+\subsubsection{Les hypothèses de base du MLGS}
+\subsubsection{Les estimateurs des moindres carrés ordinaires}
+\subsubsection{Les propriétés des estimateurs des moindres carrés ordinaires}
+\subsection{Test des estimateurs}
+\subsection{L'analyse de la variance et test du coefficient de détermination}
+\subsection{Utilisation du modèle en prévision}
+\part{Modèle linéaire général à $k$ paramètres estimés}
+\section{Test de normalité}
+\subsection{Test de symétrie normale (Skewness)}
+\subsection{Test d'aplatissement normal (Kurtosis)}
+\subsection{Test de Jarque-Bera}
 
 \section{Bibliographie}
 \begin{itemize}
