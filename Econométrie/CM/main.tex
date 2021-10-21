@@ -197,29 +197,35 @@ La méthode des MCO consiste à \textcolor{red}{minimiser la somme des carrés d
 \begin{center}
 	\textbf{Programme de Minimisation :}
 \end{center}
-\begin{gather*}
-	\min \sum_t (Y_t - \hat{Y_t})^2 \\
-	\min \sum_t \varepsilon^2_t = \min \sum_t ( Y_t - \hat{Y_t})^2 = \min \sum_t (Y_t - (\hat{\upalpha} + \hat{\upbeta} X_t))^2 \\ 
-\end{gather*}
+\begin{equation*}
+	\min \sum_t e^2_t = \min \sum_t ( Y_t - \hat{Y_t})^2 = \min \sum_t (Y_t - (\hat{\upalpha} + \hat{\upbeta} X_t))^2
+\end{equation*}
 Conditions de premier ordre :
-\begin{multicols}{2}
-\begin{gather*}
-	\pdv{\varphi}{\hat{\upalpha}} = -2 \sum_t (Y_t - \hat{\upalpha} - \hat{\upbeta} X_t ) = 0 \\
-	\Leftrightarrow \quad n \overline{Y} - n \hat{\upalpha} - \hat{\upbeta} n \overline{X} = 0 \\
-	\Leftrightarrow \quad \hat{\upalpha} = \overline{Y} - \hat{\upbeta} - \overline{X}
-\end{gather*}
-\columnbreak
+\begin{align*}
+	\pdv{\varphi}{\hat{\upalpha}} &= 0 &\pdv{\varphi}{\hat{\upbeta}} = 0
+\end{align*}
 
-\begin{gather*}
-	\pdv{\varphi}{\hat{\upbeta}} = -2 \sum_t (Y_t - \hat{\alpha} - \hat{\upbeta} X_t) X_t \\
-	\Leftrightarrow \quad \sum_t (Y_t - (\overline{Y} - \hat{\upbeta} \overline{X} - \hat{\upbeta} X_t) X_t = 0 \\
-	\Leftrightarrow \quad \sum_t X_tY_t - \overline{Y} \sum_t X_t + \hat{\upbeta} \overline{X} \sum_t X_t - \hat{\upbeta} \sum_t X_t^2 = 0\\
-	\Leftrightarrow \quad \sum_t X_tY_t - \overline{Y} n \overline{X} + \hat{\upbeta} \overline{X} n \overline{X} - \hat{\upbeta} \sum_t X_t^2 = 0 \\
-	\Leftrightarrow \quad \sum_t X_tY_t - n \overline{X} \overline{Y} - \hat{\upbeta} (\sum_t X_t^2 -n \overline{X^2}) = 0 \\
-	\Leftrightarrow \quad \hat{\upbeta} = \frac{\frac{1}{n}\sum_t X_tY_t - n \overline{X} \overline{Y}}{\sum_t X_t^2 -n \overline{X^2}} = \frac{n Cov(X,Y)}{n V(X)}
-\end{gather*}
+\begin{multicols}{2}
+\begin{equation*}
+\begin{split}
+	&\Leftrightarrow -2 \sum_t (Y_t - \hat{\upalpha} - \hat{\upbeta} X_t ) = 0 \\
+	&\Leftrightarrow \quad n \overline{Y} - n \hat{\upalpha} - \hat{\upbeta} n \overline{X} = 0 \\
+	&\Leftrightarrow \quad \hat{\upalpha} = \overline{Y} - \hat{\upbeta} - \overline{X}
+\end{split}
+\end{equation*}
+\columnbreak
+\begin{equation*}
+\begin{split}
+ 	&\Leftrightarrow-2 \sum_t (Y_t - \hat{\alpha} - \hat{\upbeta} X_t) X_t \\
+	&\Leftrightarrow \quad \sum_t (Y_t - (\overline{Y} - \hat{\upbeta} \overline{X} - \hat{\upbeta} X_t) X_t = 0 \\
+	&\Leftrightarrow \quad \sum_t X_tY_t - \overline{Y} \sum_t X_t + \hat{\upbeta} \overline{X} \sum_t X_t - \hat{\upbeta} \sum_t X_t^2 = 0\\
+	&\Leftrightarrow \quad \sum_t X_tY_t - \overline{Y} n \overline{X} + \hat{\upbeta} \overline{X} n \overline{X} - \hat{\upbeta} \sum_t X_t^2 = 0 \\
+	&\Leftrightarrow \quad \sum_t X_tY_t - n \overline{X} \overline{Y} - \hat{\upbeta} (\sum_t X_t^2 -n \overline{X^2}) = 0 \\
+	&\Leftrightarrow \quad \hat{\upbeta} = \frac{\frac{1}{n}\sum_t X_tY_t - n \overline{X} \overline{Y}}{\sum_t X_t^2 -n \overline{X^2}} = \frac{n Cov(X,Y)}{n V(X)}
+\end{split}
+\end{equation*}
 \end{multicols}
-\textit{D'où}
+D'où
 {
 \color{red}
 \begin{align*}
@@ -355,7 +361,7 @@ d'où
 
 \subsection{Étude de la corrélation}
  Le \textbf{coefficient de corrélation} est un coefficient qui mesure le degrés de covariation linéaire, c'est à dire la manière dont varient ensemble les variables entre elles.
- \[r_{XY} = \frac{Cov(X,Y)}{\upsigma_X \cdot \upsigma_y} = \frac{\sum x_t y_t}{\sqrt{\sum x_t^2 \sum y_t^2}}\]
+ \[r_{XY} = \frac{Cov(X,Y)}{\upsigma_X \cdot \upsigma_Y} = \frac{\sum x_t y_t}{\sqrt{\sum x_t^2 \sum y_t^2}}\]
  
  \subsubsection{Propriétés}
  \begin{itemize}
