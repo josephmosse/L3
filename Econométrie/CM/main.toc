@@ -43,6 +43,15 @@
 \contentsline {part}{II\hspace {1em}Modèle linéaire général à $k$ paramètres estimés}{19}{}%
 \contentsline {section}{\numberline {8}Test de normalité}{19}{}%
 \contentsline {subsection}{\numberline {8.1}Test de symétrie normale (Skewness)}{19}{}%
-\contentsline {subsection}{\numberline {8.2}Test d'aplatissement normal (Kurtosis)}{19}{}%
-\contentsline {subsection}{\numberline {8.3}Test de Jarque-Bera}{19}{}%
-\contentsline {section}{\numberline {9}Bibliographie}{19}{}%
+\contentsline {subsection}{\numberline {8.2}Test d'aplatissement normal (Kurtosis)}{20}{}%
+\contentsline {subsection}{\numberline {8.3}Test de Jarque-Bera}{20}{}%
+\contentsline {section}{\numberline {9}Le problème de l'autocorrélation des erreurs}{21}{}%
+\contentsline {subsection}{\numberline {9.1}Détection de l'autocorrélation}{21}{}%
+\contentsline {subsection}{\numberline {9.2}Causes de l'autocorrélation}{21}{}%
+\contentsline {subsection}{\numberline {9.3}Les effets de l'autocorrélation}{21}{}%
+\contentsline {subsection}{\numberline {9.4}Tests d'autocorrélation}{22}{}%
+\contentsline {subsubsection}{\numberline {9.4.1}Test d'autocorrélation d'ordre 1 (Dublin Watson)}{22}{}%
+\contentsline {subsubsection}{\numberline {9.4.2}Test d'autocorrélation d'ordre k}{22}{}%
+\contentsline {section}{\numberline {10}Le problème de l'hétéroscédasticité}{22}{}%
+\contentsline {subsection}{\numberline {10.1}Définition et conséquences}{22}{}%
+\contentsline {part}{III\hspace {1em}Bibliographie}{22}{}%

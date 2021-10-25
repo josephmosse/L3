@@ -150,13 +150,13 @@ Le fait d'introduire un aléa permet de faire des tests sur \(\upalpha \textrm{ 
 
 Tout modèle non linéaire peut se ramener à un modèle linéaire (transformation par anamorphose).
 \begin{center}
-    \textbf{\textcolor{ForestGreen}{Exemples (transformation)}}\\
-    \begin{tabular}{c|c|c}
-         \( Y = \upalpha e^{\upbeta X}\) & \( Y = \upalpha X^{\upbeta}\) & \( Y = \frac{\upalpha}{X^\upbeta}\) \\
-         \( \ln Y = \ln \upalpha + \upbeta X  \) & \( \ln Y = \ln \upalpha + \upbeta \ln X \) & \( \ln Y = \ln \upalpha - \upbeta \ln X \) \\
-         \( Y' = \upalpha' + \upbeta X \) & \( Y' = \upalpha' + \upbeta X' \) & \( Y' = \upalpha' - \upbeta X' \)
-    \end{tabular}
+    \textbf{\textcolor{ForestGreen}{Exemples (transformation)}}
 \end{center}
+\begin{align*}
+	Y &= \upalpha e^{\upbeta X} & Y&= \upalpha X^{\upbeta} & Y&= \frac{\upalpha}{X^\upbeta} \\
+	 \ln Y &= \ln \upalpha + \upbeta X & \ln Y&= \ln \upalpha + \upbeta X  \ln & \ln Y&= \ln \upalpha - \upbeta \ln X \\
+	 Y' &= \upalpha' + \upbeta X & Y' &= \upalpha' + \upbeta X' & Y' &= \upalpha' - \upbeta X'
+\end{align*}
 
 \begin{align*}
     Y_t = \frac{Y_0}{1 + \upbeta X^t} &\Leftrightarrow \frac{Y_0}{Y_t} - 1 = \upbeta X^t \\
@@ -549,13 +549,13 @@ Calcul de la statistique de test :
 \end{equation*}
 \textbf{Statistique de test}
 \begin{equation*}
-		t_c = \frac{\hat{Y}_0 - (\upalpha + \upbeta X_0)}{\hat{\upsigma}_\varepsilon \sqrt{1 + \frac{1}{n} + \frac{(X_0 - \overline{X})^2}{\sum x_t^2}}} \sim T(n-2)
+		t_c = \frac{Y_0 - \hat{Y}_0 }{\hat{\upsigma}_\varepsilon \sqrt{1 + \frac{1}{n} + \frac{(X_0 - \overline{X})^2}{\sum x_t^2}}} \sim T(n-2)
 \end{equation*}
 \textbf{Intervalle d'acceptation}
 \begin{equation*}
 	\begin{split}	
 		1 - \upalpha &= Prob\left[\studn < T(n-2) <\studp \right] \\
-		&= Prob\left[\studn < \frac{\hat{Y}_0 - (\upalpha + \upbeta X_0)}{\hat{\upsigma}_\varepsilon \sqrt{1 + \frac{1}{n} + \frac{(X_0 - \overline{X})^2}{\sum x_t^2}}} <\studp \right] \\
+		&= Prob\left[\studn < \frac{Y_0 - \hat{Y}_0 }{\hat{\upsigma}_\varepsilon \sqrt{1 + \frac{1}{n} + \frac{(X_0 - \overline{X})^2}{\sum x_t^2}}} <\studp \right] \\
 		&{\color{red}\boxed{= Prob\left[\hat{Y}_0 \in \left(\begin{cases}\upalpha + \upbeta X_0 \\ E(Y_0/X_0 \\ Y_0\end{cases} \pm \begin{cases}\studn \\ \studp\end{cases} \hat{\upsigma}_\varepsilon \sqrt{1 + \frac{1}{n} + \frac{(X_0 - \overline{X})^2}{\sum x_t^2}} \right)\right]}}
 	\end{split}
 \end{equation*}
@@ -572,12 +572,115 @@ Si $\hat{Y}_0 \notin$ IA on rejette $H_0$ au risque de $\upalpha$
 \subsection{L'analyse de la variance et test du coefficient de détermination}
 \subsection{Utilisation du modèle en prévision}
 \part{Modèle linéaire général à $k$ paramètres estimés}
+Ici nous supposons que les hypothèses de base sur l'aléa ne sont plus vérifiées, à savoir : normalité, auto-corrélation, homoscédasticité, hétéroscédasticité.
 \section{Test de normalité}
+Il existe deux tests de normalité :
+\begin{itemize}
+	\item Test de Skewness (symétrie)
+	\item Kurtosis (applatissement)
+\end{itemize}
+La normalité concerne l'aléa, comme on ne connait pas l'aléa, on fait les tests sur les résidus.
 \subsection{Test de symétrie normale (Skewness)}
-\subsection{Test d'aplatissement normal (Kurtosis)}
-\subsection{Test de Jarque-Bera}
+\textbf{Spécification du test}
+\begin{equation*}
+	H_0 : \text{symétrie normale (Skewness)}
+\end{equation*}
+\textbf{Statistique de test}\\	
+\makebox[0.5cm]{$\beta_1^{1/2}$}  : Coefficient de symétrie de Pearson (Skewness) \\
+\makebox[0.5cm]{$\mu_k $} : Moment centré d'ordre k
+\begin{equation*}
+	\beta_1^{1/2} = \frac{\mu_3}{\mu_2^{3/2}} \sim N\left(0, \sqrt{\frac{6}{n}}\right) \quad 
+\end{equation*}
+d'où
+\begin{equation*}
+	\upsilon_1 = \frac{\beta_1^{1/2} - 0 }{\sqrt{\frac{6}{n}}} \sim N(0,1)
+\end{equation*}
+\textbf{Intervalle d'acceptation}
+\begin{equation*}
+1 - \upalpha = Prob \left[u_{\upalpha/2}< \frac{ \beta_1^{1/2} - 0 }{\sqrt{\frac{6}{n}}}<u_{1 - \upalpha/2}\right]
+\end{equation*}
+\textbf{RDD} \\
+Si $\left| \frac{ \beta_1^{1/2} - 0 }{\sqrt{\frac{6}{n}}} \right| <u_{1 - \upalpha/2} $ On accepte $H_0$ au risque de $\upalpha$. {\color{red} (Il y a symétrie normale)} \\
+Si $\left| \frac{ \beta_1^{1/2} - 0 }{\sqrt{\frac{6}{n}}} \right| \geq u_{1 - \upalpha/2} $ On rejette $H_0$ au risque de $\upalpha$
 
-\section{Bibliographie}
+\subsection{Test d'aplatissement normal (Kurtosis)}
+\textbf{Spécification du test}
+\begin{equation*}
+	H_0 : \text{Applatissement normal}
+\end{equation*}
+\textbf{Statistique de test}
+\makebox[0.5cm]{$\beta_2$} : Coefficient de Kurtosis
+\begin{equation*}
+	\beta_2 = \frac{\mu_4}{\mu_2^2} \sim N\left(3, \sqrt{\frac{24}{n}}\right)
+\end{equation*}
+d'où
+\begin{equation*}
+	\upsilon_2 = \frac{\beta_2 - 3 }{\sqrt{\frac{24}{n}}} \sim N(0,1)
+\end{equation*}
+\textbf{Intervalle d'acceptation}
+\begin{equation*}
+1 - \upalpha = Prob \left[u_{\upalpha/2}<  \frac{\beta_2 - 3 }{\sqrt{\frac{24}{n}}}<u_{1 - \upalpha/2}\right]
+\end{equation*}
+\textbf{RDD} \\
+Si $\left|  \frac{\beta_2- 3 }{\sqrt{\frac{24}{n}}} \right| <u_{1 - \upalpha/2} $ On accepte $H_0$ au risque de $\upalpha$. {\color{red} (Il y a aplatissement normale)} \\
+Si $\left|  \frac{\beta_2 - 3 }{\sqrt{\frac{24}{n}}} \right| \geq u_{1 - \upalpha/2} $ On rejette $H_0$ au risque de $\upalpha$ 
+
+Si les deux hypothèses sont validées (symétrie et aplatissement normal) alors il y a normalité de l'aléa
+\subsection{Test de Jarque-Bera}
+\textbf{Spécification du test}
+\begin{equation*}
+	H_0 : \text{Normalité}
+\end{equation*}
+\textbf{Statistique de test}
+\begin{equation*}
+	JB = \frac{n}{6} \beta_1 + \frac{n}{24} (\beta_2 -3)^2 \sim \upchi^2(2)
+\end{equation*}
+\textbf{Intervalle d'acceptation}
+\begin{equation*}
+	1 - \upalpha = Prob \left[ \frac{n}{6} \beta_1 + \frac{n}{24} (\beta_2 -3)^2 < \upchi^2_{1-\upalpha}(2)\right]
+\end{equation*}
+\textbf{RDD} \\
+Si $JB < \upchi^2_{1-\upalpha}(2)$ On accepte $H_0$ au risque de $\upalpha$ {\color{red}(Il y a normalité des résidus)}\\
+Si $JB \geq \upchi^2_{1-\upalpha}(2)$ On rejette $H_0$ au risque de $\upalpha$ \\
+
+\section{Le problème de l'autocorrélation des erreurs}
+\subsection{Détection de l'autocorrélation}
+Comme l'aléa ($\varepsilon_t$) est inconnu, le test se fait sur les résidus $e_t = Y_t - \hat{Y}_t$
+\textbf{Autocorrélation} : On analyse la corrélation a l'intérieur de la distribution des résidus. Il y aura autocorrélation toutes les fois où l'on peut trouver un coefficient de corrélation linéaire significativement différent de 0 entre la chronique des résidus et elle même décalée d'un ou de plusieurs pas de temps.\\
+
+Dessin coef autocorrelation*
+
+On va appeler $r_k$ le coefficient d'autocorrélation à l'ordre $k$ (on mesure la corrélation entre la chronique et $e_t$)\\
+
+\textbf{Corrélogramme} : représentation graphique de l'ensemble des coefficients de corrélation\\
+graph FAC\\
+
+Il existe 2 types d'autocorrélation. \\
+graph AC
+
+\subsection{Causes de l'autocorrélation}
+\begin{enumerate}
+	\item Le modèle ignore une variable exogène.
+	\item Les variables de départ ont mal été désaisonnalisées (donnée de départ saisonnière)
+	\item Les variables de départ possédaient des non informations et corrigés par extrapolation linéaire)
+	\item Les valeurs de départ contiennent des événements exceptionnels mal expliqués par le modèle. Cela peut signifier qu'il y a eu un manque de variable dichotomique ($= \{0;1\}$)
+	\item Les variables de départ ne sont pas stationnaire, elles peuvent contenir 
+\end{enumerate}
+Graph
+
+\subsection{Les effets de l'autocorrélation}
+\begin{itemize}
+	\item Les estimateurs sont sans biais
+	\item Les variances d'échantillon des coefficients de régression ne sont plus minimales (les estimateurs ne sont plus efficaces)
+	\item On ne peut pas utiliser le modèle pour faire la prévision, la méthode des MCO n'est plus la meilleure des méthodes pour estimer le modèle (remise en cause du modèle)
+\end{itemize}
+\subsection{Tests d'autocorrélation}
+\subsubsection{Test d'autocorrélation d'ordre 1 (Dublin Watson)}
+Le test de Dublin Watson
+\subsubsection{Test d'autocorrélation d'ordre k}
+\section{Le problème de l'hétéroscédasticité}
+\subsection{Définition et conséquences}
+\part{Bibliographie}
 \begin{itemize}
     \item Bourbonnais - Econométrie - Dunod
     \item Johnston Dinardo - Econométrie
