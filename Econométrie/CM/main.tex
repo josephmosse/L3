@@ -680,12 +680,159 @@ Le test de Dublin Watson
 \subsubsection{Test d'autocorrélation d'ordre k}
 \section{Le problème de l'hétéroscédasticité}
 \subsection{Définition et conséquences}
+
+
+
+NOTES 08/11/21 \\
+\subsection{Test de Brush Pagan}
+Si il y a hétérosédasticité, il y a relation entre aléa et var explicatives \\
+$\varepsilon_{t}² = \delta_{1} + \delta_{2} X_{2t} + \ldots + \delta_{k} X_{kt} + \nu_{t}$ \\
+$H_0 : \delta_1 = \delta_2 = \ldots = \delta_k = 0 \qquad H_1 \text{au moins 1 coef} \neq 0$ \\
+Deux façons : 
+\begin{enumerate}
+    \item $F_{c} = \frac{R^2}{1-R^2} \cdot \frac{n-k}{k-1} \sim F(k-1, n-k)$ \\
+        rdd :\\
+        si $F_c < F_{1-p}$ $H_o$ acceptée au risque de p (homosédasticité)\\
+        si $F_c \ge   F_{1-p}$ $H_o$ acceptée au rejetée de p (heterosédasticité) \\
+    \item $LM = n R^2 \sim \upchi^2(k-1)$ \\
+        rdd :\\
+        si $nR^2 < \upchi^2$ $H_0$ acceptée au risque de p \\
+        si $nR^2 \ge \upchi^2$ $H_0$ rejetée au risque de p
+\end{enumerate}
+
+\subsection{Test de White}
+Test de White sans terme Croisé et avec terme croisé.
+\begin{equation}
+    \varepsilon_{t}^2 = \lambda_1 + \lambda_2 X_{2t} + \ldots + \lambda_k X_{kt} + a_2 X_{2t}^2
+    + a_k X_{kt}^2+ \mu_t
+\end{equation}
+
+\begin{equation*}
+    H_0 \lambda_1 = \lambda_k = a_1 = \ldots = a_k = O \qquad H_1 \text{au moins un coef} \neq
+    0
+\end{equation*}
+
+1 : Regression \\
+K nombre total de paramètres estimés
+\begin{equation*}
+    F_c = \frac{R^2}{1-R^2} \cdot \frac{n-K}{K-1} \sim F(K-1, n-K)
+\end{equation*}
+
+Rdd : \\
+Si $F_c < F_{1-p} $ $H_0$ acceptée au risque de $p$ (homosédasticité) \\
+Si $F_c \ge  F_{1-p} $ $H_0$ rejetée au risque de $p$ (heterosedasticité) \\
+
+2 : Regression \\
+\begin{equation*}
+    LM = n R^2 \sim \upchi²(K-1)
+\end{equation*}
+
+rdd :\\
+si $nR^2 < \upchi^2$ $H_0$ acceptée au risque de p \\
+si $nR^2 \ge \upchi^2$ $H_0$ rejetée au risque de p \\
+
+Avec Termes croisés 
+\begin{equation}
+    \varepsilon_{t}^2 = \lambda_1 + \lambda_2 X_{2t} + \ldots + \lambda_k X_{kt} + a_2 X_{2t}^2 +
+    a_k X_{kt}^2+ \mu_t +b_2 X_{2t} X_{3t} + b_3 X_{2t} X_{4t}+\eta_t
+\end{equation}
+la manière de proceder est la même que en terme non croisés
+
+\subsection{Goldfeld - Qrandt}
+Ce test se construit toutes les fois ou l'écart type de l'erreur du modèle s'accroit
+proportionellement avec l'une des variables explicative
+
+\begin{equation*}
+    \sqrt{E(\varepsilon_t^2)} = a X_{kt} + \eta_t
+\end{equation*}
+On ordone les observations des variables $Y \text{ et } X_{kt}$ en fonction des valeurs croissantes de la
+variable qui a une relation avec l'écart type de l'alea. On supprime les observations
+centrales de l'échantillon obtenu et on appelle $m$ le nombre de ces observations suprimées.
+\begin{align*}
+    &n =30  &m=8 \\
+    &n =60  &m=16
+\end{align*}
+On obtient deux sous échantillons, un qui correspond aux faibles valeurs des variables
+explicatives, et l'autre qui correspond aux fortes de celle ci, On applique les MCO sur chacun
+de ces sous échantillons \\
+ech 1 : $SCR_1$ \\
+ech 2 : $SCR_2$ \\
+\textbf{Test}
+\begin{equation*}
+    H_0 \; \text{Homosédasticité} \qquad H_1 \; \text{Hétérosédasticité}
+\end{equation*}
+
+\textbf{Regression :}
+\begin{equation*}
+    \frac{\text{SCR}_2}{\text{SCR}_1} \sim F \left( \frac{n-m}{2}-k ; \frac{n-m}{2}-k\right)  
+\end{equation*}
+
+\textbf{Rdd :} \\
+Si $F_c < F_{1-p} $ $H_0$ acceptée au risque de $p$ (homosédasticité) \\
+Si $F_c \ge  F_{1-p} $ $H_0$ rejetée au risque de $p$ (heterosedasticité) \\
+
+\section{La Multi-colinéarité}
+\subsection{Definition}
+Dans le MLS on a supposé que les variables $X_{k}$ étaient linéairement idépendantes, ce qu'on a
+traduit par le fait que le rang de $X$ est égal a $k$. On dira qu'il y a colinéarité parfaite
+entre deux variables explicatives si les deux vecteurs d'observation sont identiques, ce que
+l'on traduit par le coefficient de corrélation linéaire entre les deux égal a $1$.\\ On dira qu'il
+y a multicolinéarité parfaite entre plusieures variables (explicatives) si il existe une
+combinaison linéaire des observations de plusieures varibales qui donnent le vecteur des
+observations d'une autre variable. Le coefficient de détermination (multiple) $R^2$ entre ces variables
+doit être égal a $1$. \\
+Dans le cas de colinéarité parfaite il est nécessaire de modifier le modèle de départ en
+supprimant la variable qui est a l'origine de la colinéarité. \\
+Dans la pratique la colinéarité parfaite n'existe quasiment pas, par contre il y a une
+tendance vers la colinéairité, c'est a dire un $R^2 \rightarrow 1$
+\subsection{Les effets de la colinéarité}
+\begin{enumerate}
+    \item Les estimateurs des MC tendent à être très important en valeur absolue
+    \item Les variances et les covariances tendent à être importantes
+\end{enumerate}
+\subsection{Les test de colinéarité}
+\subsubsection{Test d'Haitvosky}
+Ce test repose sur l'observation de la matrice des coefficients de corrélation linéaire simple
+\textbf{entre les vairables explicatives}. Cette matrice permet de detecter des colinéarités
+simples mais pas des multi-colinéarités.
+ $\tild{R}$ matrice des coefficients de correlation linéaire simple entre les variables
+    explicatives \\
+Si un élément de cete matrice tend vers 1, cela veut dire qu'il existe une colinéarité entre
+les deux variables exogènes utilisées dans le calcul de ce coefficient
+\begin{equation*}
+    H_0 \; |\tild{R}| = 0 \qquad H_1 \; |R| \neq 0
+\end{equation*}
+
+\begin{equation*}
+    \begin{split}
+        H = - (n-1-\frac{1}{6}(2k +5))\ln(1-\tild{R}) \sim \upchi^2_{1-p} \; (\frac{1}{2}k(k-2))
+    \end{split}
+\end{equation*}
+\textbf{Rdd :}\\
+Si $H< \upchi^2_{1-p}$ $H_0$ acceptée au risque de $p$ \\
+Si $H< \upchi^2_{1-p}$ $H_0$ acceptée au risque de $p$
+
+\subsubsection{VIF}
+Facteur d'inflation de la variance
+\begin{equation*}
+    \text{VIF}_L = \frac{1}{1-R_i^2}
+\end{equation*}
+$R_i²$ : coefficient de détermination multiple entre une variable $X_i$ et les autres
+\begin{equation*}
+    \begin{split}
+        \text{VIF}_1 &= \frac{1}{1-R_1^2} R_1^2 &\rightarrow X_2 et X_3,X_4 \\
+        \text{VIF}_2 &= \frac{1}{1-R_2^2} R_2^2 &\rightarrow X_3 et X_2,X_4 \\
+        \text{VIF}_3 &= \frac{1}{1-R_3^2} R_3^2 &\rightarrow X_4 et X_2,X_3 
+    \end{split}
+\end{equation*}
+VIF$\rightarrow + \infty$ cela voudra dire qu'il y a de la colinéarité entre $X_i$ et les
+autres variables 
+\subsubsection{Etude des valeurs propres de la matrice des coefficients de correlation
+linéaire simple $Rtilde$}
 \part{Bibliographie}
 \begin{itemize}
     \item Bourbonnais - Econométrie - Dunod
     \item Johnston Dinardo - Econométrie
     \item Greene - Econométrie - Pearson 
 \end{itemize}
-
-
 \end{document}

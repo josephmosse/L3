@@ -54,4 +54,14 @@
 \contentsline {subsubsection}{\numberline {9.4.2}Test d'autocorrélation d'ordre k}{22}{}%
 \contentsline {section}{\numberline {10}Le problème de l'hétéroscédasticité}{22}{}%
 \contentsline {subsection}{\numberline {10.1}Définition et conséquences}{22}{}%
-\contentsline {part}{III\hspace {1em}Bibliographie}{22}{}%
+\contentsline {subsection}{\numberline {10.2}Test de Brush Pagan}{22}{}%
+\contentsline {subsection}{\numberline {10.3}Test de White}{22}{}%
+\contentsline {subsection}{\numberline {10.4}Goldfeld - Qrandt}{23}{}%
+\contentsline {section}{\numberline {11}La Multi-colinéarité}{24}{}%
+\contentsline {subsection}{\numberline {11.1}Definition}{24}{}%
+\contentsline {subsection}{\numberline {11.2}Les effets de la colinéarité}{24}{}%
+\contentsline {subsection}{\numberline {11.3}Les test de colinéarité}{24}{}%
+\contentsline {subsubsection}{\numberline {11.3.1}Test d'Haitvosky}{24}{}%
+\contentsline {subsubsection}{\numberline {11.3.2}VIF}{24}{}%
+\contentsline {subsubsection}{\numberline {11.3.3}Etude des valeurs propres de la matrice des coefficients de correlation linéaire simple $Rtilde$}{25}{}%
+\contentsline {part}{III\hspace {1em}Bibliographie}{25}{}%
