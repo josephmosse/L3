@@ -5,3 +5,8 @@
 \contentsline {subsection}{\numberline {1.2}Adam Smith, L'invention de l'économie classique}{4}{}%
 \contentsline {subsubsection}{\numberline {1.2.1}Le problème Adam Smith (Das A.S Problem - Hegel)}{4}{}%
 \contentsline {subsubsection}{\numberline {1.2.2}Valeur utilité ou valeur travail}{5}{}%
+\contentsline {subsection}{\numberline {1.3}Commentaire}{7}{}%
+\contentsline {subsection}{\numberline {1.4}Pourquoi les valeurs sont diff}{8}{}%
+\contentsline {subsection}{\numberline {1.5}Malthus}{8}{}%
+\contentsline {subsubsection}{\numberline {1.5.1}Les idées économiques}{9}{}%
+\contentsline {subsection}{\numberline {1.6}L'utilitatisme}{11}{}%
