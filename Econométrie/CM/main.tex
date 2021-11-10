@@ -11,6 +11,10 @@
 \usepackage[makeroom]{cancel}
 \usepackage{nicefrac}
 
+\usepackage{import}
+\usepackage{xifthen}
+\usepackage{pdfpages}
+\usepackage{transparent}
 
 
 \title{Econométrie}
@@ -676,11 +680,25 @@ Graph
 \end{itemize}
 \subsection{Tests d'autocorrélation}
 \subsubsection{Test d'autocorrélation d'ordre 1 (Dublin Watson)}
-Le test de Dublin Watson
+Le test de Dublin Watson permet de mettre en évidence l'autocorrélation à l'ordre 1.\\
+Il y a processus d'AR(1) lorsque :
+\begin{equation*}
+	\varepsilon_t = \uprho \varepsilon_{t-1} + \eta_t
+\end{equation*}
+$\eta_t \sim$ Bruit Blanc : Hypothèse de normalité, homosédasticité, non autocorrélation. \\
+\textbf{Spécification du test :}
+\begin{equation*}
+	H_0 : \uprho = 0 \qquad H_1 : \uprho \neq 0
+\end{equation*}
+{\color{ForestGreen} $\uprho=0 \Rightarrow$ Absence d'autocorrelation car : $\varepsilon_t = 0\varepsilon_{t-1}$} 
+
 \subsubsection{Test d'autocorrélation d'ordre k}
 \section{Le problème de l'hétéroscédasticité}
 \subsection{Définition et conséquences}
-
+Il y a 
+ \subsection{Test de Gleijer}
+ 
+ \subsection{Test de ARCH}
 
 
 NOTES 08/11/21 \\
@@ -795,17 +813,17 @@ tendance vers la colinéairité, c'est a dire un $R^2 \rightarrow 1$
 Ce test repose sur l'observation de la matrice des coefficients de corrélation linéaire simple
 \textbf{entre les vairables explicatives}. Cette matrice permet de detecter des colinéarités
 simples mais pas des multi-colinéarités.
- $\tild{R}$ matrice des coefficients de correlation linéaire simple entre les variables
+ $\tilde{R}$ matrice des coefficients de correlation linéaire simple entre les variables
     explicatives \\
 Si un élément de cete matrice tend vers 1, cela veut dire qu'il existe une colinéarité entre
 les deux variables exogènes utilisées dans le calcul de ce coefficient
 \begin{equation*}
-    H_0 \; |\tild{R}| = 0 \qquad H_1 \; |R| \neq 0
+    H_0 \; |\tilde{R}| = 0 \qquad H_1 \; |R| \neq 0
 \end{equation*}
 
 \begin{equation*}
     \begin{split}
-        H = - (n-1-\frac{1}{6}(2k +5))\ln(1-\tild{R}) \sim \upchi^2_{1-p} \; (\frac{1}{2}k(k-2))
+        H = - (n-1-\frac{1}{6}(2k +5))\ln(1-\tilde{R}) \sim \upchi^2_{1-p} \; (\frac{1}{2}k(k-2))
     \end{split}
 \end{equation*}
 \textbf{Rdd :}\\
@@ -820,9 +838,9 @@ Facteur d'inflation de la variance
 $R_i²$ : coefficient de détermination multiple entre une variable $X_i$ et les autres
 \begin{equation*}
     \begin{split}
-        \text{VIF}_1 &= \frac{1}{1-R_1^2} R_1^2 &\rightarrow X_2 et X_3,X_4 \\
-        \text{VIF}_2 &= \frac{1}{1-R_2^2} R_2^2 &\rightarrow X_3 et X_2,X_4 \\
-        \text{VIF}_3 &= \frac{1}{1-R_3^2} R_3^2 &\rightarrow X_4 et X_2,X_3 
+        \text{VIF}_1 &= \frac{1}{1-R_1^2} \qquad R_1^2 \rightarrow X_2 et X_3,X_4 \\
+        \text{VIF}_2 &= \frac{1}{1-R_2^2} \qquad R_2^2 \rightarrow X_3 et X_2,X_4 \\
+        \text{VIF}_3 &= \frac{1}{1-R_3^2} \qquad R_3^2 \rightarrow X_4 et X_2,X_3 
     \end{split}
 \end{equation*}
 VIF$\rightarrow + \infty$ cela voudra dire qu'il y a de la colinéarité entre $X_i$ et les
