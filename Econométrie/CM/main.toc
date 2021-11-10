@@ -1,67 +1,69 @@
-\contentsline {part}{I\hspace {1em}Modèle linéaire simple}{3}{}%
-\contentsline {section}{\numberline {1}Introduction}{3}{}%
-\contentsline {subsection}{\numberline {1.1}Définition}{3}{}%
-\contentsline {subsection}{\numberline {1.2}Prix Nobels}{3}{}%
-\contentsline {section}{\numberline {2}Histoire de l'économétrie}{3}{}%
-\contentsline {subsection}{\numberline {2.1}Des Origines de l'économétrie à l'âge d'or de la modélisation Macro-économique}{3}{}%
-\contentsline {subsubsection}{\numberline {2.1.1}Premières études [17eme 18eme siècle]}{3}{}%
-\contentsline {subsubsection}{\numberline {2.1.2}Genèse de l'économétrie [19\textsuperscript {ème} siècle]}{3}{}%
-\contentsline {subsubsection}{\numberline {2.1.3}Imbrication de l'économie, des mathématiques et de la statistique [20\textsuperscript {ème} siècle]}{4}{}%
-\contentsline {subsection}{\numberline {2.2}De la crise de la modélisation macro-économique à l'âge d'or de l'économétrie}{5}{}%
-\contentsline {subsubsection}{\numberline {2.2.1}Années 70 et la fin de l'âge d'or de la modélisation marco-économétrique selon la tradition de la Cowles Foundation}{5}{}%
-\contentsline {section}{\numberline {3}Le modèle linéaire simple à deux variables et généralisation a k variables}{5}{}%
-\contentsline {subsection}{\numberline {3.1}Les hypothèses de base du modèle}{6}{}%
-\contentsline {subsection}{\numberline {3.2}Les estimateurs des MCO (moindres carrés ordinaire)}{7}{}%
-\contentsline {section}{\numberline {4}Lois des estimateurs, intervalles de confiance et tests d'hypothèse}{8}{}%
-\contentsline {subsection}{\numberline {4.1}Estimation par intervalle de confiance}{8}{}%
-\contentsline {subsubsection}{\numberline {4.1.1} Intervalle de confiance de \(\upbeta \)}{8}{}%
-\contentsline {subsubsection}{\numberline {4.1.2}Intervalle de confiance de \(\hat {\upalpha }\)}{9}{}%
-\contentsline {subsubsection}{\numberline {4.1.3}Intervalle de confiance de \(\upsigma _\varepsilon ^2\)}{9}{}%
-\contentsline {subsection}{\numberline {4.2}Tests d'hypothèse}{10}{}%
-\contentsline {subsubsection}{\numberline {4.2.1}Test de $\upbeta $}{10}{}%
-\contentsline {subsubsection}{\numberline {4.2.2}Test de $\upalpha $}{11}{}%
-\contentsline {subsubsection}{\numberline {4.2.3}Test de $\upsigma _\varepsilon ^2$}{12}{}%
-\contentsline {subsection}{\numberline {4.3}Étude de la corrélation}{12}{}%
-\contentsline {subsubsection}{\numberline {4.3.1}Propriétés}{12}{}%
-\contentsline {subsubsection}{\numberline {4.3.2}Analyse de la Variance}{13}{}%
-\contentsline {subsubsection}{\numberline {4.3.3}Calcul du coefficient de détermination $R^2$}{14}{}%
-\contentsline {subsubsection}{\numberline {4.3.4}Test du coefficient de corrélation linéaire r}{14}{}%
-\contentsline {subsubsection}{\numberline {4.3.5}Tableau de l'analyse de la variance}{15}{}%
-\contentsline {section}{\numberline {5}Test du coefficient de détermination $R^2$}{15}{}%
-\contentsline {section}{\numberline {6}Utilisation du modèle de régression en prévision}{16}{}%
-\contentsline {subsection}{\numberline {6.1}Intervalle de confiance : de la valeur moyenne de $Y$ connaissant une valeur donnée de $X$}{16}{}%
-\contentsline {subsection}{\numberline {6.2}Tests d'hypothèse : comparaison d'une prévision ponctuelle à la droite des moindres carrés}{17}{}%
-\contentsline {section}{\numberline {7}Le modèle linéaire simple à plusieurs variables explicatives}{19}{}%
-\contentsline {subsection}{\numberline {7.1}Les estimateurs des moindres carrés ordinaires (MCO)}{19}{}%
-\contentsline {subsubsection}{\numberline {7.1.1}Spécifications matricielles du modèle}{19}{}%
-\contentsline {subsubsection}{\numberline {7.1.2}Les hypothèses de base du MLGS}{19}{}%
-\contentsline {subsubsection}{\numberline {7.1.3}Les estimateurs des moindres carrés ordinaires}{19}{}%
-\contentsline {subsubsection}{\numberline {7.1.4}Les propriétés des estimateurs des moindres carrés ordinaires}{19}{}%
-\contentsline {subsection}{\numberline {7.2}Test des estimateurs}{19}{}%
-\contentsline {subsection}{\numberline {7.3}L'analyse de la variance et test du coefficient de détermination}{19}{}%
-\contentsline {subsection}{\numberline {7.4}Utilisation du modèle en prévision}{19}{}%
-\contentsline {part}{II\hspace {1em}Modèle linéaire général à $k$ paramètres estimés}{19}{}%
-\contentsline {section}{\numberline {8}Test de normalité}{19}{}%
-\contentsline {subsection}{\numberline {8.1}Test de symétrie normale (Skewness)}{19}{}%
-\contentsline {subsection}{\numberline {8.2}Test d'aplatissement normal (Kurtosis)}{20}{}%
-\contentsline {subsection}{\numberline {8.3}Test de Jarque-Bera}{20}{}%
-\contentsline {section}{\numberline {9}Le problème de l'autocorrélation des erreurs}{21}{}%
-\contentsline {subsection}{\numberline {9.1}Détection de l'autocorrélation}{21}{}%
-\contentsline {subsection}{\numberline {9.2}Causes de l'autocorrélation}{21}{}%
-\contentsline {subsection}{\numberline {9.3}Les effets de l'autocorrélation}{21}{}%
-\contentsline {subsection}{\numberline {9.4}Tests d'autocorrélation}{22}{}%
-\contentsline {subsubsection}{\numberline {9.4.1}Test d'autocorrélation d'ordre 1 (Dublin Watson)}{22}{}%
-\contentsline {subsubsection}{\numberline {9.4.2}Test d'autocorrélation d'ordre k}{22}{}%
-\contentsline {section}{\numberline {10}Le problème de l'hétéroscédasticité}{22}{}%
-\contentsline {subsection}{\numberline {10.1}Définition et conséquences}{22}{}%
-\contentsline {subsection}{\numberline {10.2}Test de Brush Pagan}{22}{}%
-\contentsline {subsection}{\numberline {10.3}Test de White}{22}{}%
-\contentsline {subsection}{\numberline {10.4}Goldfeld - Qrandt}{23}{}%
-\contentsline {section}{\numberline {11}La Multi-colinéarité}{24}{}%
-\contentsline {subsection}{\numberline {11.1}Definition}{24}{}%
-\contentsline {subsection}{\numberline {11.2}Les effets de la colinéarité}{24}{}%
-\contentsline {subsection}{\numberline {11.3}Les test de colinéarité}{24}{}%
-\contentsline {subsubsection}{\numberline {11.3.1}Test d'Haitvosky}{24}{}%
-\contentsline {subsubsection}{\numberline {11.3.2}VIF}{24}{}%
-\contentsline {subsubsection}{\numberline {11.3.3}Etude des valeurs propres de la matrice des coefficients de correlation linéaire simple $Rtilde$}{25}{}%
-\contentsline {part}{III\hspace {1em}Bibliographie}{25}{}%
+\contentsline {part}{I\hspace {1em}Modèle linéaire simple}{4}{}%
+\contentsline {section}{\numberline {1}Introduction}{4}{}%
+\contentsline {subsection}{\numberline {1.1}Définition}{4}{}%
+\contentsline {subsection}{\numberline {1.2}Prix Nobels}{4}{}%
+\contentsline {section}{\numberline {2}Histoire de l'économétrie}{4}{}%
+\contentsline {subsection}{\numberline {2.1}Des Origines de l'économétrie à l'âge d'or de la modélisation Macro-économique}{4}{}%
+\contentsline {subsubsection}{\numberline {2.1.1}Premières études [17eme 18eme siècle]}{4}{}%
+\contentsline {subsubsection}{\numberline {2.1.2}Genèse de l'économétrie [19\textsuperscript {ème} siècle]}{4}{}%
+\contentsline {subsubsection}{\numberline {2.1.3}Imbrication de l'économie, des mathématiques et de la statistique [20\textsuperscript {ème} siècle]}{5}{}%
+\contentsline {subsection}{\numberline {2.2}De la crise de la modélisation macro-économique à l'âge d'or de l'économétrie}{6}{}%
+\contentsline {subsubsection}{\numberline {2.2.1}Années 70 et la fin de l'âge d'or de la modélisation marco-économétrique selon la tradition de la Cowles Foundation}{6}{}%
+\contentsline {section}{\numberline {3}Le modèle linéaire simple à deux variables et généralisation a k variables}{6}{}%
+\contentsline {subsection}{\numberline {3.1}Les hypothèses de base du modèle}{7}{}%
+\contentsline {subsection}{\numberline {3.2}Les estimateurs des MCO (moindres carrés ordinaire)}{8}{}%
+\contentsline {section}{\numberline {4}Lois des estimateurs, intervalles de confiance et tests d'hypothèse}{9}{}%
+\contentsline {subsection}{\numberline {4.1}Estimation par intervalle de confiance}{9}{}%
+\contentsline {subsubsection}{\numberline {4.1.1} Intervalle de confiance de \(\upbeta \)}{9}{}%
+\contentsline {subsubsection}{\numberline {4.1.2}Intervalle de confiance de \(\hat {\upalpha }\)}{10}{}%
+\contentsline {subsubsection}{\numberline {4.1.3}Intervalle de confiance de \(\upsigma _\varepsilon ^2\)}{10}{}%
+\contentsline {subsection}{\numberline {4.2}Tests d'hypothèse}{11}{}%
+\contentsline {subsubsection}{\numberline {4.2.1}Test de $\upbeta $}{11}{}%
+\contentsline {subsubsection}{\numberline {4.2.2}Test de $\upalpha $}{12}{}%
+\contentsline {subsubsection}{\numberline {4.2.3}Test de $\upsigma _\varepsilon ^2$}{13}{}%
+\contentsline {subsection}{\numberline {4.3}Étude de la corrélation}{13}{}%
+\contentsline {subsubsection}{\numberline {4.3.1}Propriétés}{13}{}%
+\contentsline {subsubsection}{\numberline {4.3.2}Analyse de la Variance}{14}{}%
+\contentsline {subsubsection}{\numberline {4.3.3}Calcul du coefficient de détermination $R^2$}{15}{}%
+\contentsline {subsubsection}{\numberline {4.3.4}Test du coefficient de corrélation linéaire r}{15}{}%
+\contentsline {subsubsection}{\numberline {4.3.5}Tableau de l'analyse de la variance}{16}{}%
+\contentsline {section}{\numberline {5}Test du coefficient de détermination $R^2$}{16}{}%
+\contentsline {section}{\numberline {6}Utilisation du modèle de régression en prévision}{17}{}%
+\contentsline {subsection}{\numberline {6.1}Intervalle de confiance : de la valeur moyenne de $Y$ connaissant une valeur donnée de $X$}{17}{}%
+\contentsline {subsection}{\numberline {6.2}Tests d'hypothèse : comparaison d'une prévision ponctuelle à la droite des moindres carrés}{18}{}%
+\contentsline {section}{\numberline {7}Le modèle linéaire simple à plusieurs variables explicatives}{20}{}%
+\contentsline {subsection}{\numberline {7.1}Les estimateurs des moindres carrés ordinaires (MCO)}{20}{}%
+\contentsline {subsubsection}{\numberline {7.1.1}Spécifications matricielles du modèle}{20}{}%
+\contentsline {subsubsection}{\numberline {7.1.2}Les hypothèses de base du MLGS}{20}{}%
+\contentsline {subsubsection}{\numberline {7.1.3}Les estimateurs des moindres carrés ordinaires}{20}{}%
+\contentsline {subsubsection}{\numberline {7.1.4}Les propriétés des estimateurs des moindres carrés ordinaires}{20}{}%
+\contentsline {subsection}{\numberline {7.2}Test des estimateurs}{20}{}%
+\contentsline {subsection}{\numberline {7.3}L'analyse de la variance et test du coefficient de détermination}{20}{}%
+\contentsline {subsection}{\numberline {7.4}Utilisation du modèle en prévision}{20}{}%
+\contentsline {part}{II\hspace {1em}Modèle linéaire général à $k$ paramètres estimés}{20}{}%
+\contentsline {section}{\numberline {8}Test de normalité}{20}{}%
+\contentsline {subsection}{\numberline {8.1}Test de symétrie normale (Skewness)}{20}{}%
+\contentsline {subsection}{\numberline {8.2}Test d'aplatissement normal (Kurtosis)}{21}{}%
+\contentsline {subsection}{\numberline {8.3}Test de Jarque-Bera}{21}{}%
+\contentsline {section}{\numberline {9}Le problème de l'autocorrélation des erreurs}{22}{}%
+\contentsline {subsection}{\numberline {9.1}Détection de l'autocorrélation}{22}{}%
+\contentsline {subsection}{\numberline {9.2}Causes de l'autocorrélation}{22}{}%
+\contentsline {subsection}{\numberline {9.3}Les effets de l'autocorrélation}{22}{}%
+\contentsline {subsection}{\numberline {9.4}Tests d'autocorrélation}{23}{}%
+\contentsline {subsubsection}{\numberline {9.4.1}Test d'autocorrélation d'ordre 1 (Dublin Watson)}{23}{}%
+\contentsline {subsubsection}{\numberline {9.4.2}Test d'autocorrélation d'ordre k}{23}{}%
+\contentsline {section}{\numberline {10}Le problème de l'hétéroscédasticité}{23}{}%
+\contentsline {subsection}{\numberline {10.1}Définition et conséquences}{23}{}%
+\contentsline {subsection}{\numberline {10.2}Test de Gleijer}{23}{}%
+\contentsline {subsection}{\numberline {10.3}Test de ARCH}{23}{}%
+\contentsline {subsection}{\numberline {10.4}Test de Brush Pagan}{23}{}%
+\contentsline {subsection}{\numberline {10.5}Test de White}{24}{}%
+\contentsline {subsection}{\numberline {10.6}Goldfeld - Qrandt}{24}{}%
+\contentsline {section}{\numberline {11}La Multi-colinéarité}{25}{}%
+\contentsline {subsection}{\numberline {11.1}Definition}{25}{}%
+\contentsline {subsection}{\numberline {11.2}Les effets de la colinéarité}{25}{}%
+\contentsline {subsection}{\numberline {11.3}Les test de colinéarité}{25}{}%
+\contentsline {subsubsection}{\numberline {11.3.1}Test d'Haitvosky}{25}{}%
+\contentsline {subsubsection}{\numberline {11.3.2}VIF}{26}{}%
+\contentsline {subsubsection}{\numberline {11.3.3}Etude des valeurs propres de la matrice des coefficients de correlation linéaire simple $Rtilde$}{26}{}%
+\contentsline {part}{III\hspace {1em}Bibliographie}{26}{}%
