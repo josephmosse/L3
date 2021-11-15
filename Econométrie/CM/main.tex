@@ -16,6 +16,8 @@
 \usepackage{pdfpages}
 \usepackage{transparent}
 
+\setlength{\columnsep}{0.3cm}
+\setlength{\columnseprule}{0.01cm}
 
 \title{Econométrie}
 
@@ -214,7 +216,7 @@ Conditions de premier ordre :
 \begin{split}
 	&\Leftrightarrow -2 \sum_t (Y_t - \hat{\upalpha} - \hat{\upbeta} X_t ) = 0 \\
 	&\Leftrightarrow \quad n \overline{Y} - n \hat{\upalpha} - \hat{\upbeta} n \overline{X} = 0 \\
-	&\Leftrightarrow \quad \hat{\upalpha} = \overline{Y} - \hat{\upbeta} - \overline{X}
+	&\Leftrightarrow \quad \hat{\upalpha} = \overline{Y} - \hat{\upbeta}  \overline{X}
 \end{split}
 \end{equation*}
 \columnbreak
@@ -234,7 +236,7 @@ D'où
 \color{red}
 \begin{align*}
 	\hat{\upbeta} &= \frac{\frac{1}{n}\sum_t X_tY_t - \overline{X} \overline{Y}}{\frac{1}{n}\sum_t X_t^2 - \overline{X^2}} = \frac{Cov(X,Y)}{V(X)} \\
-	\hat{\upalpha} &= \overline{Y} - \hat{\upbeta} - \overline{X}
+	\hat{\upalpha} &= \overline{Y} - \hat{\upbeta} \overline{X}
 \end{align*}
 }
 Conditions de second ordre : 
@@ -679,8 +681,8 @@ Graph
 	\item On ne peut pas utiliser le modèle pour faire la prévision, la méthode des MCO n'est plus la meilleure des méthodes pour estimer le modèle (remise en cause du modèle)
 \end{itemize}
 \subsection{Tests d'autocorrélation}
-\subsubsection{Test d'autocorrélation d'ordre 1 (Dublin Watson)}
-Le test de Dublin Watson permet de mettre en évidence l'autocorrélation à l'ordre 1.\\
+\subsubsection{Test d'autocorrélation d'ordre 1 (Durbin Watson)}
+Le test de Durbin Watson permet de mettre en évidence l'autocorrélation à l'ordre 1.\\
 Il y a processus d'AR(1) lorsque :
 \begin{equation*}
 	\varepsilon_t = \uprho \varepsilon_{t-1} + \eta_t
@@ -696,75 +698,155 @@ $\eta_t \sim$ Bruit Blanc : Hypothèse de normalité, homosédasticité, non aut
 \begin{equation*}
 	DW = \frac{\sum(e_{t+1} - e_t)^2}{\sum e_t^2}
 \end{equation*}
+\textbf{RDD}
+\begin{table}[h]
+\begin{tabular}{ccccc}
+\hline
+\multicolumn{1}{|c|}{$0 ; d_1$} & \multicolumn{1}{c|}{$d_1 ; d_2$}& \multicolumn{1}{c|}{$2$} & \multicolumn{1}{c|}{$4-d_2 ; 4-d_1$} & \multicolumn{1}{c|}{$4-d_1 ; 4$}                                                                      \\ \hline
+\multicolumn{1}{|c|}{\begin{tabular}[c]{@{}c@{}}autocorrelation \\ positive \\ d'ordre 1\end{tabular}} & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}Zone de doute\\ $\leftarrow$\end{tabular}} & \multicolumn{1}{c|}{Abscence d'autocorrelation (H0 vrai)} & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}Zone de doute\\ $\rightarrow$\end{tabular}} & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}autocorrelation \\ négative\\ d'ordre 1\end{tabular}} \\ \hline
+\end{tabular}
+\end{table}
 
+Remarque : 
 \begin{equation*}
-	DW\limits_{
+	\mathop{DW}\limits_{n \rightarrow \infty} = 2 (1 - \overline{\uprho})
 \end{equation*}
-
+Où $\hat{\uprho}$ est un estimateur de $\uprho$ tel que : $\hat{\uprho} = \frac{\sum(e_{t+1} - e_t)^2}{\sum e_t^2}$ avec $|\uprho| < 1$
 
 \subsubsection{Test d'autocorrélation d'ordre k}
+Statistique de Ljung-Box
+\begin{equation*}
+		\varepsilon_t = \uprho_1 \varepsilon_{t-1} +  \uprho_2 \varepsilon_{t-2} + \ldots +  \uprho_k \varepsilon_{t-k} + \eta_t
+\end{equation*}
+\textbf{Spécification du test :}
+\begin{equation*}
+		H_0 : \uprho_1=\uprho_2=\ldots=\uprho_k \qquad H_1 : \text{au moins un coef} \neq 0
+\end{equation*}
+\textbf{Statistique de test :}
+\begin{equation*}
+	\text{Q}_{\text{stat}}(K) = n(n+2) \sum_{k = 1}^{k} \frac{r_k^2}{n-k} \sim \upchi^2_{1-\upalpha} (K)
+\end{equation*}
+{\color{ForestGreen}Statistique à l'ordre 3 :
+\begin{equation*}
+		\begin{split}
+				\text{Q}_{\text{stat}}(3) &= n(n+2) \sum_{k = 1}^{3} \frac{r_k^2}{n-k} \\
+										  &= n(n+2) \left( \frac{r_1^2}{n-1} + \frac{r_2^2}{n-2} + \frac{r_3^2}{n-3} \right) 
+		\end{split}
+\end{equation*}}
+\textbf{RDD :}
+Si $\text{Q}_{\text{stat}} < \upchi^2_{1-\upalpha} (K)$ On accepte $H_0$ au risque de $\upalpha$ (abscence d'AR à l'ordre k)\\
+Si $\text{Q}_{\text{stat}} \geq  \upchi^2_{1-\upalpha} (K)$ On rejette $H_0$ au risque de $\upalpha$ (AR à l'ordre k)
 \section{Le problème de l'hétéroscédasticité}
 \subsection{Définition et conséquences}
-Il y a 
- \subsection{Test de Gleijer}
- 
- \subsection{Test de ARCH}
+Il y a hétéroscédasticité lorsque les termes qui se trouvent sur la diagonale de la matrice covariance-variance esont différents entre eux tel que : 
+$E(\varepsilon_1^2)=\upsigma_1^2 \neq E(\varepsilon_2^2)=\upsigma_2^2 \neq E(\varepsilon_n^2)=\upsigma_n^2$
+Les conséquences de l'hétéroscédasticité sont les mêmes que celles de l'autocorrélation (l'hétéroscédasticité étant un cas particulier de l'autocorrélation).
+\subsection{Test de Glejser}
+Le test de Glejser consiste a regresser la valeur absolue des résidus (obtenus lors de la regression) avec chacune des variables explicatives (Il y a donc autant de regressions qe de variables explicatives).
 
+\begin{equation*}
+		\begin{split}
+			|e_t| &= a_0 + a_1 +X_{kt} \\
+			|e_t| &= a_0 + \frac{a_1}{X_{kt}} \\
+			|e_t| &= a_0 + a_1 \sqrt{X_{kt}} \\
+			|e_t| &= a_0 + \frac{a_1}{\sqrt{X_{kt}}}
+		\end{split}
+\end{equation*}
+On teste par la suite la siginificativité de $a_1$.\\
+\textbf{Spécification du test :}
+\begin{equation*}
+		H_0 : a_1 = 0 \qquad H_1 : a_1 \neq 0 
+\end{equation*}
+\textbf{Statistique de test :}
+\begin{equation*}
+		t_c = \frac{\hat{a_1}}{\hat{\upsigma}_{\hat{a}_1}} \sim T(n-2)
+\end{equation*}
+\textbf{RDD : }
+Si $|t_c|< t_{1-\upalpha/2}$ On accepte $H_0$ au risque de $\upalpha$ (homoscédasticité)\\
+Si $|t_c| \geq t_{1-\upalpha/2}$ On rejette $H_0$ au risque de $\upalpha$ (hétéroscédasticité)\\
+\subsection{Test de ARCH}
+Processus autorégressif sur le carré de la variable :
+\begin{equation*}
+		\varepsilon_t^2 = \varphi_1 \varepsilon_{t-1}^2 + \varphi_2 \varepsilon_{t-2}^2 + \ldots + \varphi_p \varepsilon_{t-p}^2 + \eta_t
+\end{equation*}
+\textbf{Spécification du test}
+\begin{equation}
+		H_0 : \varphi_1 = \varphi_2 = \ldots = \varphi_p = 0 \qquad H_1 : \text{au moins un coef} \neq 0 
+\end{equation}
+\textbf{Statistique de test :} Multiplicateur de Lagrange
+\begin{equation*}
+		LM = n R^2 \sim \upchi^2_{1-\upalpha} (p)
+\end{equation*}
+Où $p$ est le nombre de retards. \\
+\textbf{RDD : } \\
+Si $nR^2 < \upchi^2_{1-\upalpha} (p)$ On accepte $H_0$ au risque de $\upalpha$ (homoscédasticité)\\
+Si $nR^2 \geq \upchi^2_{1-\upalpha} (p)$ On rejette $H_0$ au risque de $\upalpha$ (hétéroscédasticité)
 
 NOTES 08/11/21 \\
-\subsection{Test de Brush Pagan}
-Si il y a hétérosédasticité, il y a relation entre aléa et var explicatives \\
-$\varepsilon_{t}² = \delta_{1} + \delta_{2} X_{2t} + \ldots + \delta_{k} X_{kt} + \nu_{t}$ \\
-$H_0 : \delta_1 = \delta_2 = \ldots = \delta_k = 0 \qquad H_1 \text{au moins 1 coef} \neq 0$ \\
-Deux façons : 
-\begin{enumerate}
-    \item $F_{c} = \frac{R^2}{1-R^2} \cdot \frac{n-k}{k-1} \sim F(k-1, n-k)$ \\
-        rdd :\\
-        si $F_c < F_{1-p}$ $H_o$ acceptée au risque de p (homosédasticité)\\
-        si $F_c \ge   F_{1-p}$ $H_o$ acceptée au rejetée de p (heterosédasticité) \\
-    \item $LM = n R^2 \sim \upchi^2(k-1)$ \\
-        rdd :\\
-        si $nR^2 < \upchi^2$ $H_0$ acceptée au risque de p \\
-        si $nR^2 \ge \upchi^2$ $H_0$ rejetée au risque de p
-\end{enumerate}
+\subsection{Test de Breusch Pagan}
+Si il y a hétérosédasticité, il y a une relation entre l'aléa et les variables explicatives. \\
+\begin{equation*}
+		\varepsilon_{t}² = \delta_{1} + \delta_{2} X_{2t} + \ldots + \delta_{k} X_{kt} + \nu_{t}
+\end{equation*}
+\textbf{Spécification du test :}
+\begin{equation*}
+	H_0 : \delta_1 = \delta_2 = \ldots = \delta_k = 0 \qquad H_1 : \text{au moins un coef} \neq 0 
+\end{equation*}
+Deux façons de procéder :
+\begin{multicols}{2}
+\textbf{Statistique de test :} Fischer
+\begin{equation*}
+		F_{c} = \frac{R^2}{1-R^2} \cdot \frac{n-K}{K-1} \sim F_{1-\upalpha}(K-1, n-K)
+\end{equation*}
+\textbf{RDD :} \\
+Si $F_c < F_{1-\upalpha}(K-1, n-K)$ On accepte $H_0$ \\ 
+Si $F_c \geq F_{1-\upalpha}(K-1, n-K)$ On rejette $H_0$ \\
+\columnbreak
 
+\textbf{Statistique de test :} Lagrange
+\begin{equation*}
+		LM = n R^2 \sim \upchi^2_{1-\upalpha} (K-1)
+\end{equation*}
+\textbf{RDD : } \\
+Si $nR^2 < \upchi^2_{1-\upalpha} (K-1)$ On accepte $H_0$\\
+Si $nR^2 \geq \upchi^2_{1-\upalpha} (K-1)$ On rejette $H_0$ \\ 
+\end{multicols}
+Où $K$ est le nombre de paramètres estimés.
 \subsection{Test de White}
-Test de White sans terme Croisé et avec terme croisé.
-\begin{equation}
-    \varepsilon_{t}^2 = \lambda_1 + \lambda_2 X_{2t} + \ldots + \lambda_k X_{kt} + a_2 X_{2t}^2
-    + a_k X_{kt}^2+ \mu_t
-\end{equation}
-
+Le test de White est fondé sur une relation entre le carré des résidus et une ou plusieures variables explicatives au carré au sein d'une même régression. \\
+On peut réaliser le test de white sans termes croisés et avec termes croisés. Pour le premier :
 \begin{equation*}
-    H_0 \lambda_1 = \lambda_k = a_1 = \ldots = a_k = O \qquad H_1 \text{au moins un coef} \neq
-    0
+    \varepsilon_t^2 = a_0 +a_1 x_{1t} + b_1 x_{1t}^2 + a_2 x_{2t} + b_2 x_{2t}^2 + \ldots + a_k x_{kt} + b_k x_{kt}^2 + \upeta_t
 \end{equation*}
-
-1 : Regression \\
-K nombre total de paramètres estimés
+\textbf{Spécification du test :}
 \begin{equation*}
-    F_c = \frac{R^2}{1-R^2} \cdot \frac{n-K}{K-1} \sim F(K-1, n-K)
+		H_0: a_1 = b_1 = a_2 = b_2 = \ldots = a_k = b_k \qquad H_1: \text{au moins un coef} \neq 0
 \end{equation*}
-
-Rdd : \\
-Si $F_c < F_{1-p} $ $H_0$ acceptée au risque de $p$ (homosédasticité) \\
-Si $F_c \ge  F_{1-p} $ $H_0$ rejetée au risque de $p$ (heterosedasticité) \\
-
-2 : Regression \\
+\begin{multicols}{2}		
+\textbf{Statistique de test :} Fischer
 \begin{equation*}
-    LM = n R^2 \sim \upchi²(K-1)
+    F_c = \frac{R^2}{1-R^2} \cdot \frac{n-K}{K-1} \sim F_{1-\upalpha}(K-1, n-K)
 \end{equation*}
+\textbf{RDD : } \\
+Si $F_c < F_{1-\upalpha}(K-1, n-K)$ On accepte $H_0$ \\
+Si $F_c \geq F_{1-\upalpha}(K-1, n-K)$ On rejette $H_0$ \\ 
+\columnbreak
 
-rdd :\\
-si $nR^2 < \upchi^2$ $H_0$ acceptée au risque de p \\
-si $nR^2 \ge \upchi^2$ $H_0$ rejetée au risque de p \\
+\textbf{Statistique de test :} Lagrange
+\begin{equation*}
+		LM = n R^2 \sim \upchi^2_{1-\upalpha} (K-1)
+\end{equation*}
+\textbf{RDD : } \\
+Si $nR^2 < \upchi^2_{1-\upalpha} (K-1)$ On accepte $H_0$ \\
+Si $nR^2 \geq \upchi^2_{1-\upalpha} (K-1)$ On rejette $H_0$ 
+\end{multicols}
+Où $K$ est le nombre de paramètres estimés. \\
 
-Avec Termes croisés 
-\begin{equation}
-    \varepsilon_{t}^2 = \lambda_1 + \lambda_2 X_{2t} + \ldots + \lambda_k X_{kt} + a_2 X_{2t}^2 +
-    a_k X_{kt}^2+ \mu_t +b_2 X_{2t} X_{3t} + b_3 X_{2t} X_{4t}+\eta_t
-\end{equation}
-la manière de proceder est la même que en terme non croisés
+Avec termes croisés :  
+\begin{equation*}
+    \varepsilon_{t}^2 = \lambda_1 + \lambda_2 X_{2t} + \ldots + \lambda_k X_{kt} + a_2 X_{2t}^2 +a_k X_{kt}^2+ \mu_t +b_2 X_{2t} X_{3t} + b_3 X_{2t} X_{4t}+\eta_t
+\end{equation*}
+La manière de proceder est la même que en terme non croisés.
 
 \subsection{Goldfeld - Qrandt}
 Ce test se construit toutes les fois ou l'écart type de l'erreur du modèle s'accroit
