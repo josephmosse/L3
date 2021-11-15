@@ -114,10 +114,21 @@ if(abs((kurt-3)/sqrt(n/24))<qnorm(0.975,0,1)){
 LM <- n*summary$r.squared
 print(LM)
 
-
-
 # ARCH
 
+# Goldfeld 
+gqtest(Model,fraction=67)
+
+# hardcoded goldfeld
+gqdata_1 <- data.td[(1:93),(2:5)]
+gqdata_2 <- data.td[(159:252),(2:5)]
+
+gq_model_1 <- lm(Y~X1+X2+X3 , data=gqdata_1)
+gq_model_2 <- lm(Y~X1+X2+X3 , data=gqdata_2)
+
+gq_stat <- sum(resid(gq_model_2)^2)/sum(resid(gq_model_1)^2)
+
+print(gq_stat)
 
 
 X11()
@@ -129,7 +140,7 @@ X11()
 ggpairs(data.td[2:5])
 X11()
 hist(resid(Model),main="Distribution des résidus")
-while (!is.null(dev.list())) Sys.sleep(1)
+#while (!is.null(dev.list())) Sys.sleep(1)
 
 #png("/home/joseph/Documents/td4/test.png", width=1000, height=1000)
 #plot(resid(Model))

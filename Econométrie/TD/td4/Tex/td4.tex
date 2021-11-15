@@ -142,6 +142,8 @@ H$_1$ : La distribution des résidus est non normale\\
 \textbf{RDD :} \\
 Si  $\text{JB} < \upchi^2_{.95}(2)$  On accepte  H$_0$  au risque de  $\upalpha = 5\%$ \\
 Si  $\text{JB} \ge  \upchi^2_{.95}(2)$  On rejette  H$_0$  au risque de  $\upalpha = 5\%$  \\
+\textbf{Décision :} \\
+JB $= 4.2806 < \upchi^2(2) = 5.9915$ On accepte H$_0$ au risque de $\upalpha = 5\%$, il y a distribution normale des résidus.
 \subsection{Tests de de Skewness et Kurtosis}
 \subsubsection{Test de Skewness (symétrie)}
 \textbf{Spécification du test :} \\
@@ -149,15 +151,36 @@ H$_0$ : Symétrie normale \\
 H$_1$ : Symétrie anormale \\
 \textbf{Statistique de test :}
 \begin{equation*}
-		\frac{\upbeta_1^{1/2}}{\sqrt{6/n}}=  \frac{SKEW}{\sqrt{6/n}} \sim N(0,1)
+		\frac{\upbeta_1^{1/2}}{\sqrt{6/n}}=  \frac{\text{SKEW}}{\sqrt{6/n}} \sim N(0,1)
 \end{equation*}
 \textbf{RDD :} \\
 Si $\left| \frac{\upbeta^{1/2}_1}{\sqrt{6/n}} \right|  < 1.96$ On accepte $H_0$ au risque de $\upalpha = 5\% $\\
-Si $\left| \frac{\upbeta^{1/2}_1}{\sqrt{6/n}} \right|  \geq 1.96$ On rejette $H_0$ au risque de $\upalpha = 5\%$ 
-\textbf{Décision :}
-
-
+Si $\left| \frac{\upbeta^{1/2}_1}{\sqrt{6/n}} \right|  \geq 1.96$ On rejette $H_0$ au risque de $\upalpha = 5\%$ \\
+\textbf{Application :} SKEW $= -0.2102165$
+\begin{equation*}
+	\frac{\text{SKEW}}{\sqrt{6/n}} = \frac{-0.2102}{\sqrt{6/252}} = -1.3622
+\end{equation*}
+\textbf{Décision :}\\
+$\left| \frac{\upbeta^{1/2}_1}{\sqrt{6/n}} \right| = 1.3622 < 1.96 $ On accepte H$_0$ au risque de  $\upalpha=5\%$, il y a symétrie normale des résidus.
+\newpage
 \subsubsection{Test de Kurtosis (applatissement)}
+\textbf{Spécification du test :} \\
+H$_0$ : Applatissemnt normal \\
+H$_1$ : Exès de kurtosis \\
+\textbf{Statistique de test :}
+\begin{equation*}
+		\frac{\upbeta_2-3}{\sqrt{24/n}}=  \frac{\text{KURT}}{\sqrt{24/n}} \sim N(0,1)
+\end{equation*}
+\textbf{RDD :} \\
+Si $\left| \frac{\upbeta_2}{\sqrt{24/n}} \right|  < 1.96$ On accepte $H_0$ au risque de $\upalpha = 5\% $\\
+Si $\left| \frac{\upbeta_2}{\sqrt{24/n}} \right|  \geq 1.96$ On rejette $H_0$ au risque de $\upalpha = 5\%$ \\
+\textbf{Application :} SKEW $= 2.5195 $
+\begin{equation*}
+	\frac{\text{KURT}}{\sqrt{24/n}} = \frac{2.5195}{\sqrt{24/252}} = -1.557
+\end{equation*}
+\textbf{Décision :}\\
+$\left| \frac{\upbeta_2}{\sqrt{24/n}} \right| = 1.557 < 1.96 $ On accepte H$_0$ au risque de  $\upalpha=5\%$, il y a applatissement normal des résidus.
+
 
 \section{Tests d'homoscédasticité}
 \subsection{Test de ARCH}
