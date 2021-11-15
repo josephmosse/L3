@@ -142,10 +142,10 @@ X11()
 hist(resid(Model),main="Distribution des résidus")
 #while (!is.null(dev.list())) Sys.sleep(1)
 
-#png("/home/joseph/Documents/td4/test.png", width=1000, height=1000)
-#plot(resid(Model))
-#dev.off()
-#readPNG("/home/joseph/Documents/td4/test.png")
+png("plot.png", width=1920, height=1080)
+ggpairs(data.td[2:5])
+dev.off()
+readPNG("/home/joseph/Documents/td4/test.png")
     
 
 

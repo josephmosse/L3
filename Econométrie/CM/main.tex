@@ -863,82 +863,76 @@ centrales de l'échantillon obtenu et on appelle $m$ le nombre de ces observatio
     &n =60  &m=16
 \end{align*}
 On obtient deux sous échantillons, un qui correspond aux faibles valeurs des variables
-explicatives, et l'autre qui correspond aux fortes de celle ci, On applique les MCO sur chacun
-de ces sous échantillons \\
-ech 1 : $SCR_1$ \\
-ech 2 : $SCR_2$ \\
-\textbf{Test}
+explicatives, et l'autre qui correspond aux fortes de celle ci, On régresse en appliquant les MCO sur chacun
+de ces sous échantillons et l'on calcule les SCR de ces deux échantillons SCR$_1$ et SCR$_2$. \\
+
+\textbf{Spécification du test :} \\
+H$_0$ : Homoscédasticité \\
+H$_1$ : Hétéroscédasticité \\
+\textbf{Statistique de test :}
 \begin{equation*}
-    H_0 \; \text{Homosédasticité} \qquad H_1 \; \text{Hétérosédasticité}
+	F_c = \frac{\text{SCR}_2}{\text{SCR}_1} \sim F_{1-\upalpha} \left( \frac{n-m}{2}-k ; \frac{n-m}{2}-k\right)  
 \end{equation*}
 
-\textbf{Regression :}
-\begin{equation*}
-    \frac{\text{SCR}_2}{\text{SCR}_1} \sim F \left( \frac{n-m}{2}-k ; \frac{n-m}{2}-k\right)  
-\end{equation*}
-
-\textbf{Rdd :} \\
-Si $F_c < F_{1-p} $ $H_0$ acceptée au risque de $p$ (homosédasticité) \\
-Si $F_c \ge  F_{1-p} $ $H_0$ rejetée au risque de $p$ (heterosedasticité) \\
+\textbf{RDD :} \\
+Si $F_c < F_{1-\upalpha}$ On accepte H$_0$ au risque de $\upalpha$ (homosédasticité) \\
+Si $F_c \ge  F_{1-\upalpha}$ On rejette H$_0$ au risque de $\upalpha$ (heterosedasticité) \\
 
 \section{La Multi-colinéarité}
 \subsection{Definition}
-Dans le MLS on a supposé que les variables $X_{k}$ étaient linéairement idépendantes, ce qu'on a
-traduit par le fait que le rang de $X$ est égal a $k$. On dira qu'il y a colinéarité parfaite
-entre deux variables explicatives si les deux vecteurs d'observation sont identiques, ce que
-l'on traduit par le coefficient de corrélation linéaire entre les deux égal a $1$.\\ On dira qu'il
-y a multicolinéarité parfaite entre plusieures variables (explicatives) si il existe une
+Dans le MLS on a supposé que les variables $X_{k}$ étaient linéairement idépendantes, ce que l'on a
+traduit par le fait que le rang de $X$ est égal à $k$.\\
+On dira qu'il y a colinéarité parfaite entre deux variables explicatives si les deux vecteurs d'observation sont identiques, ce que
+l'on traduit par le coefficient de corrélation linéaire entre les deux égal a $1$.\\ 
+On dira qu'il y a multicolinéarité parfaite entre plusieures variables (explicatives) si il existe une
 combinaison linéaire des observations de plusieures varibales qui donnent le vecteur des
 observations d'une autre variable. Le coefficient de détermination (multiple) $R^2$ entre ces variables
 doit être égal a $1$. \\
 Dans le cas de colinéarité parfaite il est nécessaire de modifier le modèle de départ en
 supprimant la variable qui est a l'origine de la colinéarité. \\
 Dans la pratique la colinéarité parfaite n'existe quasiment pas, par contre il y a une
-tendance vers la colinéairité, c'est a dire un $R^2 \rightarrow 1$
+tendance vers la colinéairité, c'est a dire un $R^2 \rightarrow 1$.
 \subsection{Les effets de la colinéarité}
 \begin{enumerate}
     \item Les estimateurs des MC tendent à être très important en valeur absolue
     \item Les variances et les covariances tendent à être importantes
 \end{enumerate}
-\subsection{Les test de colinéarité}
+\subsection{Les tests de colinéarité}
 \subsubsection{Test d'Haitvosky}
 Ce test repose sur l'observation de la matrice des coefficients de corrélation linéaire simple
-\textbf{entre les vairables explicatives}. Cette matrice permet de detecter des colinéarités
-simples mais pas des multi-colinéarités.
+\textbf{entre les variables explicatives}. Cette matrice permet de detecter des colinéarités
+simples mais pas des multi-colinéarités.\\
  $\tilde{R}$ matrice des coefficients de correlation linéaire simple entre les variables
-    explicatives \\
-Si un élément de cete matrice tend vers 1, cela veut dire qu'il existe une colinéarité entre
-les deux variables exogènes utilisées dans le calcul de ce coefficient
+    explicatives. \\
+Si un élément de cete matrice tend vers 1, cela veut dire qu'il existe une colinéarité entre les deux variables exogènes utilisées dans le calcul de ce coefficient.: \\
+\textbf{Spécification du test :} \\
+H$_0$ : $|\tilde{R}| = 0$  \\
+H$_1$ : $|\tilde{R}|\neq 0$ \\
+\textbf{Statistique de test :}
 \begin{equation*}
-    H_0 \; |\tilde{R}| = 0 \qquad H_1 \; |R| \neq 0
+	H = - \left(n-1-\frac{1}{6}(2k +5)\right)\ln\left(1-|\tilde{R}|\right) \sim \upchi^2_{1-\upalpha} \; \left(\frac{1}{2}k(k-2)\right)
 \end{equation*}
-
-\begin{equation*}
-    \begin{split}
-        H = - (n-1-\frac{1}{6}(2k +5))\ln(1-\tilde{R}) \sim \upchi^2_{1-p} \; (\frac{1}{2}k(k-2))
-    \end{split}
-\end{equation*}
-\textbf{Rdd :}\\
-Si $H< \upchi^2_{1-p}$ $H_0$ acceptée au risque de $p$ \\
-Si $H< \upchi^2_{1-p}$ $H_0$ acceptée au risque de $p$
+\textbf{RDD :}\\
+Si $H< \upchi^2_{1-\upalpha} \; \left(\frac{1}{2}k(k-2)\right)$ On accepte H$_0$ au risque de $\upalpha$ \\
+Si $H\ge  \upchi^2_{1-\upalpha} \; \left(\frac{1}{2}k(k-2)\right)$ On rejette H$_0$ au risque de $\upalpha$ \\
 
 \subsubsection{VIF}
 Facteur d'inflation de la variance
 \begin{equation*}
-    \text{VIF}_L = \frac{1}{1-R_i^2}
+    \text{VIF}_i = \frac{1}{1-R_i^2}
 \end{equation*}
 $R_i²$ : coefficient de détermination multiple entre une variable $X_i$ et les autres
 \begin{equation*}
     \begin{split}
-        \text{VIF}_1 &= \frac{1}{1-R_1^2} \qquad R_1^2 \rightarrow X_2 et X_3,X_4 \\
-        \text{VIF}_2 &= \frac{1}{1-R_2^2} \qquad R_2^2 \rightarrow X_3 et X_2,X_4 \\
-        \text{VIF}_3 &= \frac{1}{1-R_3^2} \qquad R_3^2 \rightarrow X_4 et X_2,X_3 
+        \text{VIF}_1 &= \frac{1}{1-R_1^2} \qquad R_1^2 \rightarrow X_2 \text{ et } X_3,X_4 \\
+        \text{VIF}_2 &= \frac{1}{1-R_2^2} \qquad R_2^2 \rightarrow X_3 \text{ et } X_2,X_4 \\
+        \text{VIF}_3 &= \frac{1}{1-R_3^2} \qquad R_3^2 \rightarrow X_4 \text{ et } X_2,X_3 
     \end{split}
 \end{equation*}
-VIF$\rightarrow + \infty$ cela voudra dire qu'il y a de la colinéarité entre $X_i$ et les
-autres variables 
+VIF$\rightarrow + \infty$ Cela veut dire qu'il y a de la colinéarité entre $X_i$ et les
+autres variables.
 \subsubsection{Etude des valeurs propres de la matrice des coefficients de correlation
-linéaire simple $Rtilde$}
+linéaire simple $\tilde{R}$}
 \part{Bibliographie}
 \begin{itemize}
     \item Bourbonnais - Econométrie - Dunod

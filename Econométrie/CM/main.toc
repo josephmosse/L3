@@ -59,11 +59,11 @@
 \contentsline {subsection}{\numberline {10.4}Test de Breusch Pagan}{25}{}%
 \contentsline {subsection}{\numberline {10.5}Test de White}{25}{}%
 \contentsline {subsection}{\numberline {10.6}Goldfeld - Qrandt}{26}{}%
-\contentsline {section}{\numberline {11}La Multi-colinéarité}{27}{}%
-\contentsline {subsection}{\numberline {11.1}Definition}{27}{}%
+\contentsline {section}{\numberline {11}La Multi-colinéarité}{26}{}%
+\contentsline {subsection}{\numberline {11.1}Definition}{26}{}%
 \contentsline {subsection}{\numberline {11.2}Les effets de la colinéarité}{27}{}%
-\contentsline {subsection}{\numberline {11.3}Les test de colinéarité}{27}{}%
+\contentsline {subsection}{\numberline {11.3}Les tests de colinéarité}{27}{}%
 \contentsline {subsubsection}{\numberline {11.3.1}Test d'Haitvosky}{27}{}%
 \contentsline {subsubsection}{\numberline {11.3.2}VIF}{27}{}%
-\contentsline {subsubsection}{\numberline {11.3.3}Etude des valeurs propres de la matrice des coefficients de correlation linéaire simple $Rtilde$}{28}{}%
+\contentsline {subsubsection}{\numberline {11.3.3}Etude des valeurs propres de la matrice des coefficients de correlation linéaire simple $\tilde {R}$}{28}{}%
 \contentsline {part}{III\hspace {1em}Bibliographie}{28}{}%
